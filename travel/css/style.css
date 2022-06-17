@@ -1,0 +1,140 @@
+
+
+/* magra-700 - latin */
+@font-face {
+  font-family: 'Magra';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/magra-v14-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/magra-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/magra-v14-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/magra-v14-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/magra-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/magra-v14-latin-700.svg#Magra') format('svg'); /* Legacy iOS */
+}
+/* red-hat-text-500 - latin */
+@font-face {
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/red-hat-text-v11-latin-500.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/red-hat-text-v11-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/red-hat-text-v11-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/red-hat-text-v11-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/red-hat-text-v11-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/red-hat-text-v11-latin-500.svg#RedHatText') format('svg'); /* Legacy iOS */
+}
+
+html{
+  box-sizing: border-box;
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: lightblue; /* DELETE */
+}
+
+/* Header styles start  */
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  background: rgba(242, 120, 92, 0.7);
+  box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
+  
+}
+
+.header_logo_link {
+
+  margin-left: 120px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Magra';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.header_nav {
+  margin-left: 158px;
+}
+
+.header_nav ul, .header_nav li {
+  margin: 0;
+  padding: 0;
+}
+
+.header_nav li {
+  list-style: none;
+  display: inline;
+}
+
+.header_nav_link {
+  text-decoration: none;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #FFFFFF;
+}
+
+.header_nav ul li:not(:first-child) {
+  margin-left: 42px;
+}
+
+.header_nav_link:hover {
+  opacity: .75;
+}
+
+
+.login_button {
+  display: block;
+  margin-left: 196px;
+  width: 103px;
+  height: 41px;
+  background: #0D606F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border: 0px;
+  border-radius: 10px;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #FFFFFF;
+}
+
+.login_button:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition-duration: 0.4s; 
+  cursor: pointer;
+}
+
+/* Header styles end  */
+
+/* Preview styles start */
+
+.preview {
+  background: url(../img/preview_bg.jpg) no-repeat /*center*/;
+  /* background-size: cover; */
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Preview styles end  */
+
