@@ -329,3 +329,119 @@ html{
 }
 
 /* Steps styles end */
+
+/* Destination styles start */
+
+.destinations {
+  height: 1219px;
+  padding-top: 97px;
+  overflow: hidden;
+}
+
+.destinations h2 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 53px;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 53px;
+  color: #F2785C;
+  text-align: center;  
+}
+
+.destinations_cards_container {
+  display: flex;
+  width: 2520px;
+  margin-top: 46px;  
+  position: relative;
+  left: -540px;
+} 
+
+.destinations_card {
+  width: 800px;
+  height: 800px;
+  border-radius: 16px;
+  overflow: hidden;
+  
+}
+
+.destinations_card:not(:last-child) {
+  margin-right: 60px;
+}
+
+.destinations_card img {
+  display: block;
+}
+
+.destinations_card p{
+  margin:0;
+  padding:0;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+  color: #FFFFFF;
+  position: relative;
+  top: -82px;
+  left: 15px;
+}
+
+.destinations_pagination {
+  margin: auto;
+  margin-top: 24px;
+  height: 20px;
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.destination_pagination_circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: rgba(242, 120, 92, 0.5);
+}
+
+.destination_pagination_circle_active {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #F2785C;
+}
+
+
+.find_button {
+  display: block;
+  width: 228px;
+  height: 59px;
+  margin: auto;
+  margin-top: 40px;
+  background: #0D606F;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px; 
+  color: #FFFFFF;
+  border: 0px;
+  padding: 0;
+}
+
+.find_button > *  { 
+  vertical-align: middle; 
+}
+
+.find_button:hover {
+box-shadow: none;
+transition-duration: 0.4s; 
+cursor: pointer;
+}
+
+/* Destination styles end */
