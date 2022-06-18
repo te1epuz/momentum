@@ -81,7 +81,9 @@
 
 html{
   box-sizing: border-box;
+  scroll-behavior:smooth;
 }
+
 
 *, *::before, *::after{
   box-sizing: inherit;
@@ -527,8 +529,6 @@ cursor: pointer;
   color: #0D606F;
 }
 
-
-
 .see_more_button {
   display: block;
   width: 228px;
@@ -569,5 +569,39 @@ cursor: pointer;
 footer {
   height: 61px;  
 }
+
+footer p {
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top:21px;
+}
+
+.social_links {
+  position: relative;
+  left: 1179px;
+  top: -45px;
+}
+
+.social_links, .social_links li {
+  margin: 0;
+  padding: 0;
+}
+
+.social_links li {
+  list-style: none;
+  display: inline;
+}
+
+.social_links li img {
+  vertical-align: middle;
+  margin-right: 24px;
+}
+
+
 
 /* Footer styles end */

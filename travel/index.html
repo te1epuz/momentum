@@ -16,10 +16,10 @@
       </a>
       <nav class="header_nav">
         <ul>
-          <li><a href="#" class="header_nav_link">How It Works</a></li>
-          <li><a href="#" class="header_nav_link">Plan Your Trip</a></li>
-          <li><a href="#" class="header_nav_link">Destinations</a></li>
-          <li><a href="#" class="header_nav_link">Travel Stories</a></li>
+          <li><a href="#search_box" class="header_nav_link">How It Works</a></li>
+          <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
+          <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
+          <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
         </ul>
       </nav>
       <button class="login_button">Login</button>    
@@ -30,7 +30,7 @@
         <div class="preview_main_block">
           <h1>Explore the beauty of the World</h1>
           <p>Receive personalized recommendations for countries, hotels, activities and more</p>
-            <form class="search_box">
+            <form class="search_box" id="search_box">
             <input type="text" placeholder="What would you like to do?">
             <button class="start_button">Start Planning</button>
           </form>
@@ -66,7 +66,7 @@
         </div>
       </section>
       
-      <section class="destinations">
+      <section class="destinations" id="destinations">
         <h2>POPULAR DESTINATIONS</h2>
         <div class="destinations_cards_container">
           <div class="destinations_card">
@@ -96,7 +96,7 @@
       </section>
 
       <section class="stories">
-        <h2>TRAVEL STORIES</h2>
+        <h2 id="stories">TRAVEL STORIES</h2>
         <div class="stories_cards_container">
           <div class="stories_card">
             <img src="../travel/img/stories1.jpg" alt="story 1">
@@ -168,21 +168,15 @@
       </section>
     </main>
   
-
-
-
     <footer>
       <p>All Rights Reserved © Travel Portal</p>
-      <ul>
-        <li><a href="#">social1</a></li>
-        <li><a href="#">social2</a></li>
-        <li><a href="#">social3</a></li>
-      </ul>
+      <ul class="social_links">
+        <li><a href="#"><img src="../travel/img/svg/social1.svg" alt="social 1" width="31px" height="31px"></a></li>
+        <li><a href="#"><img src="../travel/img/svg/social2.svg" alt="social 2" width="28px" height="22px"></a></li>
+        <li><a href="#"><img src="../travel/img/svg/social3.svg" alt="social 3" width="32px" height="26px"></a></li>
+       </ul>
     </footer>
-
-
   </div>
-
 
 </body>
 </html>
