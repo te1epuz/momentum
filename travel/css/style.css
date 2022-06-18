@@ -92,28 +92,21 @@ html{
   flex-direction: column;
   max-width: 1440px;
   margin: 0 auto;
-  background: lightblue; /* DELETE */
+  background: url(../img/preview_bg.jpg) no-repeat;
 }
 
 /* Header styles start  */
 
-header {
-  background: url(../img/preview_bg.jpg);
-}
 .header {
   display: flex;
   align-items: center;
   height: 90px;
   background: rgba(242, 120, 92, 0.7);    
   box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
-  position: relative;
   padding-left: 120px;
-
 }
 
 .header_logo_link {
-
-  
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
   font-family: 'Magra';
@@ -154,7 +147,6 @@ header {
   opacity: .75;
 }
 
-
 .login_button {
   display: block;
   margin-left: 196px;
@@ -184,14 +176,11 @@ header {
 
 .preview {
   height: 675px;
-  background: url(../img/preview_bg.jpg);
-  background-position: 0 -90px;
   padding-left: 120px;
   padding-top: 32px;
 }
 
 .preview_main_block {
-
   width: 892px;
   height: 422px;
 
@@ -212,7 +201,6 @@ header {
 .preview_main_block p{
   margin: 0;
   padding: 0;
-
   font-family: 'Aleo';
   font-style: italic;
   font-weight: 700;
@@ -231,12 +219,10 @@ header {
   height: 95px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
-
+  padding-left: 41px;
+  
   position: absolute;
   top: 294px;
-
-  padding-left: 41px; 
- 
 }
 
 .search_box input, .search_box input::placeholder {
@@ -256,7 +242,6 @@ header {
   width: 228px;
   height: 59px;
   margin-left: 45px;
-
   background: #0D606F;
   box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
   border-radius: 10px;
@@ -271,7 +256,76 @@ header {
   color: #FFFFFF;
 }
 
-
+.start_button:hover {
+  box-shadow: none;
+  transition-duration: 0.4s; 
+  cursor: pointer;
+}
 
 /* Preview styles end  */
 
+/* Steps styles start */
+
+.steps {
+  height: 327px;  
+  padding-top: 80px;
+}
+
+.steps_main_block {
+  margin: auto;  
+  width: 1177px;
+  height: 247px;
+}
+
+.steps h2 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 53px;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 53px;
+  color: #F2785C;
+  text-align: center;  
+}
+
+.steps_cards_block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.steps_card {
+  height: 194px;
+  padding-top: 40px;
+}
+
+.steps_card:nth-child(1) {
+  margin-right: 71px;
+}
+
+.steps_card_iconholder {
+  height: 100px;
+  width: 100px;
+  margin: auto; 
+  background: #F2785C;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+}
+.steps_card_iconholder img{
+  align-self: center;
+}
+  
+.steps_card p {
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px; 
+  color: #0D606F;
+  margin-top: 30px;
+}
+
+/* Steps styles end */
