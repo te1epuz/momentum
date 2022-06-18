@@ -92,7 +92,9 @@ html{
   flex-direction: column;
   max-width: 1440px;
   margin: 0 auto;
-  background: url(../img/preview_bg.jpg) no-repeat;
+  background-image: url(../img/preview_bg.jpg), url(../img/stories_bg.jpg);
+  background-position: top, bottom;
+  background-repeat: no-repeat, no-repeat;
 }
 
 /* Header styles start  */
@@ -333,7 +335,7 @@ html{
 /* Destination styles start */
 
 .destinations {
-  height: 1219px;
+  height: 1139px;
   padding-top: 97px;
   overflow: hidden;
 }
@@ -415,7 +417,7 @@ html{
 }
 
 
-.find_button {
+.find_more_button {
   display: block;
   width: 228px;
   height: 59px;
@@ -434,14 +436,138 @@ html{
   padding: 0;
 }
 
-.find_button > *  { 
+.find_more_button > *  { 
   vertical-align: middle; 
 }
 
-.find_button:hover {
+.find_more_button img { 
+  margin-right: 8px;
+}
+
+.find_more_button:hover {
 box-shadow: none;
 transition-duration: 0.4s; 
 cursor: pointer;
 }
 
 /* Destination styles end */
+
+/* Stories styles start  */
+
+.stories {
+  
+  padding-top: 80px;
+}
+
+.stories h2 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 53px;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 53px;
+  color: #F2785C;
+  text-align: center;  
+}
+
+.stories_cards_container {
+  height: 1270px;
+  margin-top: 40px;
+  padding-top: 10px;
+  background: rgba(255, 255, 255, 0.7);  
+}
+
+.stories_card {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 120px;
+  max-width: 1200px;
+}
+
+.stories_card img {
+  margin-right: 40px;
+  filter: drop-shadow(0px 4px 4px #0D606F);
+  border-radius: 16px;
+
+}
+
+.stories_card h3 {
+  margin:0;
+  padding: 0;
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px; 
+  color: #0D606F;
+}
+
+.stories_card p {
+  margin: 0;
+  margin-top: 24px;
+  padding: 0;
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0D606F;
+}
+
+.stories_card a { 
+  padding: 0;
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0D606F;
+}
+
+
+
+.see_more_button {
+  display: block;
+  width: 228px;
+  height: 59px;
+  margin: auto;
+  margin-top: 40px;
+  background: #0D606F;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px; 
+  color: #FFFFFF;
+  border: 0px;
+  padding: 0;
+}
+
+.see_more_button img { 
+  margin-right: 8px;
+}
+
+.see_more_button > *  { 
+  vertical-align: middle; 
+}
+
+.see_more_button:hover {
+box-shadow: none;
+transition-duration: 0.4s; 
+cursor: pointer;
+}
+
+/* Stories styles end  */
+
+/* Footer styles start */
+
+footer {
+  height: 61px;  
+}
+
+/* Footer styles end */
