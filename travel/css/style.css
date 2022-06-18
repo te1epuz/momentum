@@ -81,9 +81,16 @@
 
 html{
   box-sizing: border-box;
-  scroll-behavior:smooth;
+  scroll-behavior:smooth;  
 }
 
+body {
+  background: #E5E5E5;  
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+
+}
 
 *, *::before, *::after{
   box-sizing: inherit;
@@ -94,6 +101,7 @@ html{
   flex-direction: column;
   max-width: 1440px;
   margin: 0 auto;
+  background: rgba(255, 255, 255, 1);
   background-image: url(../img/preview_bg.jpg), url(../img/stories_bg.jpg);
   background-position: top, bottom;
   background-repeat: no-repeat, no-repeat;
@@ -111,12 +119,16 @@ html{
 }
 
 .header_logo_link {
+  display: block;
+  width: 216px;
+  height: 31px;
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
   font-family: 'Magra';
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
+  margin-bottom: 9px;
 }
 
 .header_nav {
@@ -144,11 +156,12 @@ html{
 }
 
 .header_nav ul li:not(:first-child) {
-  margin-left: 42px;
+  margin-left: 39px; /* was 42, corrected bcz of pixelperfect */
 }
 
 .header_nav_link:hover {
   opacity: .75;
+  transition-duration: 0.4s;
 }
 
 .login_button {
@@ -166,11 +179,13 @@ html{
   font-size: 16px;
   line-height: 21px;
   color: #FFFFFF;
+  padding-left: 4px; /* added bcz of pixelperfect :( */
 }
 
 .login_button:hover {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  color: rgb(220, 220, 220);
   cursor: pointer;
 }
 
@@ -223,7 +238,7 @@ html{
   height: 95px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
-  padding-left: 41px;
+  padding-left: 40px; /* was 41, corrected bcz of pixelperfect :( */
   
   position: absolute;
   top: 294px;
@@ -240,12 +255,13 @@ html{
   background: none;
   border: 0px;
   outline: none;
+
 }
 
 .start_button {
   width: 228px;
   height: 59px;
-  margin-left: 45px;
+  margin-left: 45px; /* was 46, corrected bcz of pixelperfect :( */
   background: #0D606F;
   box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
   border-radius: 10px;
@@ -262,7 +278,8 @@ html{
 
 .start_button:hover {
   box-shadow: none;
-  transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  color: rgb(220, 220, 220); 
   cursor: pointer;
 }
 
@@ -448,7 +465,8 @@ html{
 
 .find_more_button:hover {
 box-shadow: none;
-transition-duration: 0.4s; 
+transition-duration: 0.4s;
+color: rgb(220, 220, 220); 
 cursor: pointer;
 }
 
@@ -491,7 +509,7 @@ cursor: pointer;
 
 .stories_card img {
   margin-right: 40px;
-  filter: drop-shadow(0px 4px 4px #0D606F);
+  filter: drop-shadow(0px 4px 2px #0D606F); /* was 0-4-4, corrected bcz of pixelperfect :( */
   border-radius: 16px;
 
 }
@@ -558,7 +576,8 @@ cursor: pointer;
 
 .see_more_button:hover {
 box-shadow: none;
-transition-duration: 0.4s; 
+transition-duration: 0.4s;
+color: rgb(220, 220, 220); 
 cursor: pointer;
 }
 
@@ -584,7 +603,7 @@ footer p {
 .social_links {
   position: relative;
   left: 1179px;
-  top: -45px;
+  top: -43px; /* was 24, corrected bcz of pixelperfect :( */
 }
 
 .social_links, .social_links li {
@@ -595,13 +614,17 @@ footer p {
 .social_links li {
   list-style: none;
   display: inline;
+  margin-right: 17px; /* was 24, corrected bcz of pixelperfect :( */
 }
 
 .social_links li img {
-  vertical-align: middle;
-  margin-right: 24px;
+  vertical-align: middle; 
 }
 
+.social_links li a:hover {
+  opacity: .75;
+  transition-duration: 0.4s;
+}
 
 
 /* Footer styles end */
