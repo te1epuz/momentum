@@ -81,7 +81,7 @@
 
 html{
   box-sizing: border-box;
-  scroll-behavior:smooth;  
+  scroll-behavior: smooth;  
 }
 
 body {
@@ -177,7 +177,7 @@ body {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 41px;
   color: #FFFFFF;
   padding-left: 4px; /* added bcz of pixelperfect :( */
 }
@@ -272,7 +272,7 @@ body {
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 59px;
   color: #FFFFFF;
 }
 
@@ -437,7 +437,8 @@ body {
 
 
 .find_more_button {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 228px;
   height: 59px;
   margin: auto;
@@ -448,19 +449,14 @@ body {
   font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 32px; 
+  font-size: 24px; 
   color: #FFFFFF;
   border: 0px;
-  padding: 0;
-}
-
-.find_more_button > *  { 
-  vertical-align: middle; 
+  padding-left: 33.5px;
 }
 
 .find_more_button img { 
-  margin-right: 8px;
+  margin-right: 12.5px;  
 }
 
 .find_more_button:hover {
@@ -548,7 +544,8 @@ cursor: pointer;
 }
 
 .see_more_button {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 228px;
   height: 59px;
   margin: auto;
@@ -560,18 +557,13 @@ cursor: pointer;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  line-height: 32px; 
   color: #FFFFFF;
   border: 0px;
-  padding: 0;
+  padding-left: 33.5px;
 }
 
 .see_more_button img { 
-  margin-right: 8px;
-}
-
-.see_more_button > *  { 
-  vertical-align: middle; 
+    margin-right: 12.5px;
 }
 
 .see_more_button:hover {
