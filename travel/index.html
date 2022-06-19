@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore the beauty of the World</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">        
+      <a href="#" class="header_logo_link">
+      <img src="./img/svg/logo.svg" alt="logo" class="header_logo_pic" height="30" width="30">
+      <span>Travel Portal</span>
+      </a>
+      <nav class="header_nav">
+        <ul>
+          <li><a href="#search_box" class="header_nav_link">How It Works</a></li>
+          <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
+          <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
+          <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
+        </ul>
+      </nav>
+      <button class="login_button">Login</button>    
+    </header>
+    
+    <main>
+      <section class="preview">
+        <div class="preview_main_block">
+          <h1>Explore the beauty of the World</h1>
+          <p>Receive personalized recommendations for countries, hotels, activities and more</p>
+            <form class="search_box" id="search_box">
+            <input type="text" placeholder="What would you like to do?">
+            <button class="start_button">Start Planning</button>
+          </form>
+        </div>
+      </section>
+      
+      <section class="steps">
+        <div class="steps_main_block">
+          <h2>3 STEPS TO THE PERFECT TRIP</h2>
+          <div class="steps_cards_block">
+
+            <div class="steps_card">
+              <div class="steps_card_iconholder">
+                <img src="./img/svg/card1.svg" alt="card 1">
+              </div>
+              <p>Tell us what you want to do</p>
+            </div>
+            
+            <div class="steps_card">
+              <div class="steps_card_iconholder">
+                <img src="./img/svg/card2.svg" alt="card 2">
+              </div>
+              <p>Share us preferable dates </p>
+            </div>
+
+            <div class="steps_card">
+              <div class="steps_card_iconholder">
+                <img src="./img/svg/card3.svg" alt="card 3">
+              </div>
+              <p>We will give you recommendations</p>
+            </div>
+          </div> 
+        </div>
+      </section>
+      
+      <section class="destinations" id="destinations">
+        <h2>POPULAR DESTINATIONS</h2>
+        <div class="destinations_cards_container">
+          <div class="destinations_card">
+            <a href="#"><img src="./img/destination1.jpg" alt="destination 1"></a>
+            <p>NOT MY COUNTRY :(</p>
+          </div>
+          <div class="destinations_card">
+            <a href="#"><img src="./img/destination2.jpg" alt="destination 2"></a>
+            <p>JAPAN</p>
+          </div>
+          <div class="destinations_card">
+            <a href="#"><img src="./img/destination3.jpg" alt="destination 3"></a>
+            <p>USA</p>
+          </div>
+        </div>
+
+        <div class="destinations_pagination">
+          <div class="destination_pagination_circle"></div>
+          <div class="destination_pagination_circle_active"></div>
+          <div class="destination_pagination_circle"></div>
+        </div>
+
+        <button class="find_more_button"> 
+          <img src="./img/svg/arrow_right.svg" alt="arrow_right"> 
+          <span>Find More</span>
+        </button>
+      </section>
+
+      <section class="stories">
+        <h2 id="stories">TRAVEL STORIES</h2>
+        <div class="stories_cards_container">
+          <div class="stories_card">
+            <img src="./img/stories1.jpg" alt="story 1">
+            <div>
+              <h3>10 Photos of Attractive Thailand</h3>
+              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum 
+                dolor sit amet, consectetur adipiscing elit...</p>
+              <a href="#">Read More</a>
+            </div>       
+          </div>
+          
+          <div class="stories_card">
+            <img src="./img/stories2.jpg" alt="story 2">
+            <div>
+              <h3>Canyonlands National Park, Utah</h3>
+              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                 culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, 
+                 consectetur adipiscing elit...</p>
+              <a href="#">Read More</a>
+            </div>       
+          </div>
+
+          <div class="stories_card">
+            <img src="./img/stories3.jpg" alt="story 3">
+            <div>
+              <h3>I left my heart in the Mountains!</h3>
+              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit...</p>
+              <a href="#">Read More</a>
+            </div>       
+          </div>
+
+          <div class="stories_card">
+            <img src="./img/stories4.jpg" alt="story 4">
+            <div>
+              <h3>The Longest journey in my life!</h3>
+              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
+                est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+              <a href="#">Read More</a>
+            </div>       
+          </div>
+        
+          <button class="see_more_button">
+            <img src="./img/svg/arrow_right.svg" alt="arrow_right"> 
+            <span>See More</span>  
+          </button>         
+      
+      </div>        
+
+      </section>
+    </main>
+  
+    <footer>
+      <p>All Rights Reserved © Travel Portal</p>
+      <ul class="social_links">
+        <li><a href="https://github.com/Te1epuz"><img src="./img/svg/social1.svg" alt="social 1" width="32" height="32"></a></li> <!-- was 31x31 -->
+        <li><a href="https://github.com/Te1epuz"><img src="./img/svg/social2.svg" alt="social 2" width="34" height="28"></a></li> <!-- was 28x22 -->
+        <li><a href="https://rs.school/js-stage0/"><img src="./img/svg/social3.svg" alt="social 3" width="33" height="27"></a></li> <!-- was 32x26 -->
+       </ul>
+    </footer>
+  </div>
+
+  <script src="./scripts/index.js"></script>
+</body>
+</html>
