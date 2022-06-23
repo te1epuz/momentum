@@ -84,10 +84,14 @@ html{
   scroll-behavior: smooth;  
 }
 
+img{
+  object-fit: contain;
+}
+
 body {
   background: #E5E5E5;  
   margin: 0;
-  max-width: 100%;
+  width: 100%;
   overflow-x: hidden;
 
 }
@@ -99,7 +103,7 @@ body {
 .wrapper{
   display: flex;
   flex-direction: column;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 1);
   background-image: url(../img/preview_bg.jpg), url(../img/stories_bg.jpg);
@@ -512,7 +516,6 @@ cursor: pointer;
   margin-right: 40px;
   filter: drop-shadow(0px 4px 2px #0D606F); /* was 0-4-4, corrected bcz of pixelperfect :( */
   border-radius: 16px;
-
 }
 
 .stories_card h3 {
