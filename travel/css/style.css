@@ -93,7 +93,6 @@ body {
   margin: 0;
   width: 100%;
   overflow-x: hidden;
-
 }
 
 *, *::before, *::after{
@@ -102,29 +101,35 @@ body {
 
 .wrapper{
   display: flex;
-  flex-direction: column;
-  width: 1440px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 1);
-  background-image: url(../img/preview_bg.jpg), url(../img/stories_bg.jpg);
-  background-position: top, bottom;
-  background-repeat: no-repeat, no-repeat;
+  flex-direction: column;
+  max-width: 1440px;  
+  background: rgba(255, 255, 255, 1);  
+  position: relative;
 }
 
 /* Header styles start  */
 
 .header {
-  display: flex;
-  align-items: center;
-  height: 90px;
+  position:absolute;
+  width: 100%;
   background: rgba(242, 120, 92, 0.7);    
   box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
-  padding-left: 120px;
+  padding: 25px 20px 23px 20px;   
+}
+
+.header_wrapper{
+  max-width: 1200px;
+  margin: 0 auto; 
+  display: flex;  
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; 
 }
 
 .header_logo_link {
   display: block;
-  width: 216px;
+  min-width: 216px; 
   height: 31px;
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
@@ -132,7 +137,7 @@ body {
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
-  margin-bottom: 9px;
+  margin-bottom: 9px;  
 }
 
 .header_logo_link:hover {
@@ -141,17 +146,21 @@ body {
 }
 
 .header_nav {
-  margin-left: 158px;
+  flex-basis: 45.5%;
+  min-width: 130px;
+  margin-right: 3%; 
+}
+
+.header_nav ul{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  list-style: none;
 }
 
 .header_nav ul, .header_nav li {
   margin: 0;
-  padding: 0;
-}
-
-.header_nav li {
-  list-style: none;
-  display: inline;
+  padding: 0 5px;
 }
 
 .header_nav_link {
@@ -164,10 +173,6 @@ body {
   color: #FFFFFF;
 }
 
-.header_nav ul li:not(:first-child) {
-  margin-left: 39px; /* was 42, corrected bcz of pixelperfect */
-}
-
 .header_nav_link:hover {
   opacity: .75;
   transition-duration: 0.4s;
@@ -175,8 +180,7 @@ body {
 
 .login_button {
   display: block;
-  margin-left: 196px;
-  width: 103px;
+  min-width: 103px;
   height: 41px;
   background: #0D606F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
@@ -188,7 +192,7 @@ body {
   font-size: 16px;
   line-height: 41px;
   color: #FFFFFF;
-  padding-left: 4px; /* added bcz of pixelperfect :( */
+  padding-left: 4px; 
 }
 
 .login_button:hover {
@@ -202,21 +206,25 @@ body {
 
 /* Preview styles start */
 
-.preview {
-  height: 675px;
-  padding-left: 120px;
-  padding-top: 32px;
+.preview{
+  min-height: 765px;
+  padding: 122px 20px 20px 20px;
+  background: url(../img/preview_bg.jpg) no-repeat center; 
+  background-size: cover;
+}
+
+.preview_wrapper{
+  max-width: 1200px;
+  margin: 0 auto; 
 }
 
 .preview_main_block {
-  width: 892px;
-  height: 422px;
-
-  position: relative;
+  max-width: 892px;
+  min-width: 350px; 
 }
 
 .preview_main_block h1{
-  margin: 0;
+  margin: 0 0 33px 0;
   padding: 0;
   font-family: 'Aleo';
   font-style: normal;
@@ -227,7 +235,7 @@ body {
 }
 
 .preview_main_block p{
-  margin: 0;
+  margin: 0 0 45px 0;
   padding: 0;
   font-family: 'Aleo';
   font-style: italic;
@@ -235,26 +243,22 @@ body {
   font-size: 20px;
   line-height: 24px;
   color: #FFFFFF;
-
-  position: absolute;
-  top: 224px;
 }
 
 .search_box{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  width: 892px;
-  height: 95px;
+  justify-content: space-between;
+  max-width: 892px;
+  min-height: 95px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
-  padding-left: 40px; /* was 41, corrected bcz of pixelperfect :( */
-  
-  position: absolute;
-  top: 294px;
+  padding: 18px 18px 18px 40px;  
 }
 
 .search_box input, .search_box input::placeholder {
-  width: 560px;
+  flex-grow: 1;
   font-family: 'Aleo';
   font-style: italic;
   font-weight: 400;
@@ -264,13 +268,13 @@ body {
   background: none;
   border: 0px;
   outline: none;
-
 }
 
 .start_button {
-  width: 228px;
+  
+  min-width: 228px;
   height: 59px;
-  margin-left: 45px; /* was 46, corrected bcz of pixelperfect :( */
+  margin-left: 45px;
   background: #0D606F;
   box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
   border-radius: 10px;
@@ -297,38 +301,35 @@ body {
 /* Steps styles start */
 
 .steps {
-  height: 327px;  
-  padding-top: 80px;
+  padding: 81px 20px 0px 20px; 
+  margin-bottom: 97px;
 }
 
 .steps_main_block {
   margin: auto;  
-  width: 1177px;
-  height: 247px;
+  max-width: 1177px;
 }
 
 .steps h2 {
   margin: 0;
-  padding: 0;
+  padding: 0 0 40px 0;
   width: 100%;
-  height: 53px;
   font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
   font-size: 40px;
   line-height: 53px;
   color: #F2785C;
-  text-align: center;  
+  text-align: center;    
 }
 
 .steps_cards_block {
   display: flex;
   justify-content: space-between;
+
 }
 
 .steps_card {
-  height: 194px;
-  padding-top: 40px;
 }
 
 .steps_card:nth-child(1) {
@@ -355,7 +356,8 @@ body {
   font-size: 20px;
   line-height: 24px; 
   color: #0D606F;
-  margin-top: 30px;
+  margin: 30px 0 0 0;
+  text-align: center;
 }
 
 /* Steps styles end */
@@ -363,16 +365,15 @@ body {
 /* Destination styles start */
 
 .destinations {
-  height: 1139px;
-  padding-top: 97px;
   overflow: hidden;
+  position: relative;  
+  margin-bottom: 80px;
 }
 
 .destinations h2 {
-  margin: 0;
+  margin: 0 0 46px 0;
   padding: 0;
   width: 100%;
-  height: 53px;
   font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
@@ -385,9 +386,9 @@ body {
 .destinations_cards_container {
   display: flex;
   width: 2520px;
-  margin-top: 46px;  
   position: relative;
-  left: -540px;
+  left: 50%; 
+  transform: translateX(-50%); 
 } 
 
 .destinations_card {
@@ -423,6 +424,7 @@ body {
 .destinations_pagination {
   margin: auto;
   margin-top: 24px;
+  margin-bottom: 40px;
   height: 20px;
   width: 80px;
   display: flex;
@@ -451,7 +453,7 @@ body {
   width: 228px;
   height: 59px;
   margin: auto;
-  margin-top: 40px;
+
   background: #0D606F;
   box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
   border-radius: 10px;
@@ -480,15 +482,15 @@ cursor: pointer;
 /* Stories styles start  */
 
 .stories {
+
   
-  padding-top: 80px;
 }
 
 .stories h2 {
-  margin: 0;
+  margin: 0 0 40px 0;
   padding: 0;
   width: 100%;
-  height: 53px;
+  
   font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
@@ -498,24 +500,35 @@ cursor: pointer;
   text-align: center;  
 }
 
+.stories_bg{
+  padding-bottom: 61px;
+  background: url(../img/stories_bg.jpg) no-repeat center;
+  background-size: cover;
+}
+
 .stories_cards_container {
-  height: 1270px;
-  margin-top: 40px;
-  padding-top: 10px;
+  padding: 40px 20px 40px 20px;
   background: rgba(255, 255, 255, 0.7);  
 }
 
 .stories_card {
   display: flex;
-  margin-top: 30px;
-  margin-left: 120px;
-  max-width: 1200px;
+  margin: auto;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  max-width: 1200px;  
 }
 
-.stories_card img {
+.stories_card img {  
   margin-right: 40px;
-  filter: drop-shadow(0px 4px 2px #0D606F); /* was 0-4-4, corrected bcz of pixelperfect :( */
+  filter: drop-shadow(0px 4px 2px #0D606F); 
   border-radius: 16px;
+  max-width: 100%;
+  flex-shrink: 1;
+}
+
+.stories_card_text {
+
 }
 
 .stories_card h3 {
@@ -539,6 +552,7 @@ cursor: pointer;
   font-size: 20px;
   line-height: 24px;
   color: #0D606F;
+  overflow: hidden;
 }
 
 .stories_card a { 
@@ -586,35 +600,56 @@ cursor: pointer;
 /* Footer styles start */
 
 footer {
-  height: 61px;  
+  padding: 0 20px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 61px;
 }
 
-footer p {
+.footer_wrapper {
+  max-width: 100%;
+  height: 61px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center; 
+}
+
+.footer_spacer1{
+  flex-basis: 242px;
+  flex-shrink: 2; 
+}
+.footer_spacer2{
+  flex-basis: 100px;
+  flex-shrink: 2; 
+}
+
+.footer_wrapper p {
   font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 21px;
   color: #FFFFFF;
-  text-align: center;
-  margin-top:21px;
+  position: relative;
+  text-align: center; 
+  padding-top: 6px;
+  flex-grow: 2;
+  flex-shrink: 1;
 }
 
 .social_links {
-  position: relative;
-  left: 1179px;
-  top: -43px; /* was 24, corrected bcz of pixelperfect :( */
+  display: flex;
+  width: 142px;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  flex-shrink: 0;
 }
 
 .social_links, .social_links li {
   margin: 0;
   padding: 0;
-}
-
-.social_links li {
-  list-style: none;
-  display: inline;
-  margin-right: 17px; /* was 24, corrected bcz of pixelperfect :( */
 }
 
 .social_links li img {
