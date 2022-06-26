@@ -11,30 +11,46 @@
 <body>
   <div class="wrapper">
     <header class="header">
+      <div class="header_wrapper_bg desktop_only"></div> 
       <div class="header_wrapper">
-        <a href="#" class="header_logo_link">
-        <img src="./img/svg/logo.svg" alt="logo" class="header_logo_pic" height="30" width="30">
-        <span>Travel Portal</span>
-        </a>
-        <nav class="header_nav">
-          <ul>
-            <li><a href="#search_box" class="header_nav_link">How It Works</a></li>
-            <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
-            <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
-            <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
-          </ul>
-        </nav>
-        <button class="login_button">Login</button>        
+        <div class="header_block">
+          <a href="#" class="header_logo_link">
+            <img src="./img/svg/logo.svg" alt="logo" class="header_logo_pic" height="30" width="30">
+            <span class="wide_desktop_only">Travel Portal</span>
+          </a>
+          <nav class="header_nav">
+            <ul>
+              <li class="mobile_only"><a href="#" class="header_nav_close header_nav_link">
+                <img src="./img/svg/close-sign.svg" alt="close">
+              </a></li>
+              <li><a href="#search_box" class="header_nav_link">How It Works</a></li>
+              <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
+              <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
+              <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
+            </ul>
+          </nav>
+          <button class="login_button desktop_only">Login</button>   
+
+          <div class="header_burger">
+            <span class="burger_line"></span>
+            <span class="burger_line"></span>
+            <span class="burger_line"></span>        
+          </div>
+
+        </div>        
       </div>
+
+        
+
     </header>
     
     <main>
       <section class="preview">
         <div class="preview_wrapper">
           <div class="preview_main_block">
-            <h1>Explore the beauty of the World</h1>
-            <p>Receive personalized recommendations for countries, hotels, activities and more</p>
-              <form class="search_box" id="search_box">
+            <h1 class="desktop_only">Explore the beauty of the World</h1>
+            <p class="desktop_only">Receive personalized recommendations for countries, hotels, activities and more</p>
+            <form class="search_box" id="search_box">
               <input type="text" placeholder="What would you like to do?">
               <button class="start_button">Start Planning</button>
             </form>
@@ -189,5 +205,6 @@
   </div>
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/main.js"></script>
 </body>
 </html>
