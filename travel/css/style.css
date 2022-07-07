@@ -85,7 +85,7 @@ html{
 }
 
 img{
-  display: inline-block;
+  display: block;
   object-fit: contain;
 }
 
@@ -161,6 +161,10 @@ body {
   margin-bottom: 9px;
   flex-shrink: 0;
   
+}
+
+.header_logo_link img{
+  display: inline-block;
 }
 
 .header_logo_link span{
@@ -309,7 +313,7 @@ body {
 
 .search_box{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   max-width: 892px;
@@ -366,7 +370,8 @@ body {
 
 .steps_main_block {
   margin: auto;  
-  max-width: 1177px;
+  max-width: 1279px;
+  /* max-width: 1177px; */
 }
 
 .steps h2 {
@@ -385,16 +390,17 @@ body {
 .steps_cards_block {
   display: flex;
   justify-content: space-between;
-  gap: 2%;
+  gap: 1%;
 }
 
 .steps_card {
-  flex: 0 1 auto;
+  width: 0px;
+  flex: 1 1 0px;
 }
 
-.steps_card:nth-child(1) {
+/* .steps_card:nth-child(1) {
   margin-right: 71px;
-}
+} */
 
 .steps_card_iconholder {
   height: 100px;
@@ -445,15 +451,16 @@ body {
 
 .destinations_cards_container {
   display: flex;
-  width: 2520px;
+  /* width: 2520px; */
+  width: 175%;
   position: relative;
   left: 50%; 
   transform: translateX(-50%); 
 } 
 
 .destinations_card {
-  width: 800px;
-  height: 800px;
+  /* max-width: 800px;
+  height: 800px; */
   border-radius: 16px;
   overflow: hidden;
   position: relative;
@@ -461,7 +468,13 @@ body {
 }
 
 .destinations_card:not(:last-child) {
-  margin-right: 60px;
+  margin-right: 2.4%;
+}
+
+.destinations_card img{
+  width: 100%;
+   /* max-width: 100%; */
+  /* transform: translateY(-20.5%);  */
 }
 
 /* .destinations_card a img.desktop_only {
@@ -478,7 +491,7 @@ body {
   line-height: 42px;
   color: #FFFFFF;
   position: absolute;
-  top: 717px;
+  bottom: 5.1%;
   left: 15px;
 }
 
@@ -829,7 +842,7 @@ footer {
   }
   
   .header_wrapper {
-    padding-top: 45px;
+    padding-top: 44px;
   }
 
   .header_logo_link {
@@ -907,7 +920,7 @@ footer {
 
   .search_box{
     width: 100%;
-    padding: 9px 9px 9px 17px;  
+    padding: 9px 9px 9px 14px;  
   }
   
   .search_box input, .search_box input::placeholder {
@@ -998,13 +1011,15 @@ footer {
     /* width: 93vw;
     height: 20.212vh; */
     width: 30%; /* 360px; */
-    height: 210px;
+    /* max-height: 210px; */
+    height: auto;
   }
 
-  /* .destinations_card img{
-    max-width: 100%;
-    transform: translateY(-20.5%);
-  } */
+  .destinations_card a img{
+    width: 100%;
+    /* max-width: 100%;
+    transform: translateY(-20.5%); */
+  }
 
   .destinations_card:not(:last-child) {
     margin-right: 15px;
@@ -1014,8 +1029,27 @@ footer {
   .destinations_card p{  
     font-size: 20px;
     line-height: 26px;
-    top: 9px;
+    top: 8px;
     /* left: 15px; */
+  }
+
+
+
+  .dest_arrow_left, .dest_arrow_right {
+    position: absolute;
+    width: 15px;
+    top: 44%;
+    z-index: 20; 
+  }
+
+  .dest_arrow_left {
+    left: 0.9%;
+     
+  }
+
+  .dest_arrow_right {
+    left: 27.85%;
+
   }
 
   .destinations_pagination {
@@ -1137,6 +1171,7 @@ footer {
 
   .footer_wrapper {
     justify-content: center;
+    height: 65px;
   }
 
   .social_links {
