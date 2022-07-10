@@ -115,10 +115,6 @@ body {
 
 /* Header styles start  */
 
-.header_hide{
-  display: none;
-}
-
 .header {
   position: relative;
 }
@@ -127,7 +123,6 @@ body {
   position:absolute;
   width: 100%; 
   padding: 0 15px;  
-  /* transition: 0.3s; */
   vertical-align: middle; 
 }
 
@@ -138,7 +133,6 @@ body {
   width: 100%;
   height: 90px;
 }
-
 
 .header_block{
   max-width: 1200px; 
@@ -159,8 +153,7 @@ body {
   font-weight: 600;
   font-size: 32px;
   margin-bottom: 9px;
-  flex-shrink: 0;
-  
+  flex-shrink: 0;  
 }
 
 .header_logo_link img{
@@ -260,12 +253,11 @@ body {
   cursor: pointer;
 }
 
-
-
-
-
-
 /* Header styles end  */
+
+
+
+
 
 
 
@@ -286,7 +278,6 @@ body {
 
 .preview_main_block {
   max-width: 892px;
-  /* min-width: 350px;  */
 }
 
 .preview_main_block h1{
@@ -361,6 +352,9 @@ body {
 
 /* Preview styles end  */
 
+
+
+
 /* Steps styles start */
 
 .steps {
@@ -371,7 +365,6 @@ body {
 .steps_main_block {
   margin: auto;  
   max-width: 1279px;
-  /* max-width: 1177px; */
 }
 
 .steps h2 {
@@ -398,10 +391,6 @@ body {
   flex: 1 1 0px;
 }
 
-/* .steps_card:nth-child(1) {
-  margin-right: 71px;
-} */
-
 .steps_card_iconholder {
   height: 100px;
   width: 100px;
@@ -411,6 +400,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .steps_card_iconholder img{
   align-self: center;
 }
@@ -427,6 +417,11 @@ body {
 }
 
 /* Steps styles end */
+
+
+
+
+
 
 /* Destination styles start */
 
@@ -459,8 +454,6 @@ body {
 } 
 
 .destinations_card {
-  /* max-width: 800px;
-  height: 800px; */
   border-radius: 16px;
   overflow: hidden;
   position: relative;
@@ -473,13 +466,7 @@ body {
 
 .destinations_card img{
   width: 100%;
-   /* max-width: 100%; */
-  /* transform: translateY(-20.5%);  */
 }
-
-/* .destinations_card a img.desktop_only {
-  display: block;
-} */
 
 .destinations_card p{
   margin: 0;
@@ -503,8 +490,7 @@ body {
   height: 20px;
   width: 80px;
   display: flex;
-  justify-content: space-between;
-  
+  justify-content: space-between;  
 }
 
 .destination_pagination_circle {
@@ -520,7 +506,6 @@ body {
   border-radius: 50%;
   background: #F2785C;
 }
-
 
 .find_more_button { 
   display: block;
@@ -558,8 +543,12 @@ cursor: pointer;
 
 /* Destination styles end */
 
-/* Stories styles start  */
 
+
+
+
+
+/* Stories styles start  */
 
 .stories h2 {
   margin: 0 0 40px 0;
@@ -600,13 +589,7 @@ cursor: pointer;
   border-radius: 16px;
   max-width: 100%;
   min-width: 0;
-  
-  
-  /* flex-shrink: 1; */
 }
-
-/* .stories_card_text {
-} */
 
 .stories_card h3 {
   margin:0;
@@ -649,9 +632,7 @@ cursor: pointer;
   height: 59px;
   margin: auto;
   margin-top: 40px;
-
   padding: 13px 31px 13px 81px;
-
   background: #0D606F;
 
   background-image: url(../img/svg/arrow_right.svg);
@@ -681,6 +662,10 @@ cursor: pointer;
 }
 
 /* Stories styles end  */
+
+
+
+
 
 /* Footer styles start */
 
@@ -750,22 +735,32 @@ footer {
 
 
 
+
+
+
+
 /* Media start */
 
-
 @media screen and (max-width: 850px) {
+  
+  .header_logo_link span {
+    font-size: 3.8vw;
+  }
+    
   .preview {
     height: 90vw;
   }
   
   .preview_main_block h1 {
     font-size: 9.4vw;
-    line-height: normal; 
+    line-height: normal;
+    margin-bottom: 4%; 
   }
   
   .preview_main_block p {
     font-size: 2.35vw;
-    line-height: normal; 
+    line-height: normal;
+    margin-bottom: 4%; 
   }
 
   .search_box input, .search_box input::placeholder, .start_button {
@@ -776,12 +771,10 @@ footer {
     margin-left: 2px;
   }
 
-
   .steps_main_block h2, .destinations h2, .stories h2 {
     font-size: 4.7vw;
     line-height: normal;   
-  }
-   
+  }   
 
   .steps_card:nth-child(1) {
     margin-right: 0;
@@ -791,8 +784,6 @@ footer {
     font-size: 2.3vw;
     line-height: normal; 
   }
-
-
 
   .stories_card h3 {
     font-size: 4vw;
@@ -807,19 +798,6 @@ footer {
   .stories_card a { 
     font-size: 2.5vw;
     line-height: normal;
-  }
-
-
-}
-
-
-
-
-
-@media screen and (max-width: 682px) {
-  
-  .wide_desktop_only {
-    display: none;
   }
 }
 
@@ -849,24 +827,23 @@ footer {
     margin-bottom: 0;
   }
 
-
-
   .header_nav {
     display: block;
     background-color: rgba(242, 120, 92, 1);
     position: fixed;
     z-index: 10;
     top: 0;
-    right: -165px;
+    right: -175px;
     width: 165px;
     padding: 15px 15px 20px 15px;
     margin: 0;
     border-radius: 10px;
-    transition: 0.2s;
+    box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+    transition: 0.3s;
   }
 
   .header_nav_active {
-    transform: translateX(-100%);
+    transform: translateX(-175px);
   }
 
   .header_nav ul {
@@ -907,8 +884,9 @@ footer {
     display:block;
   }
 
-/* Media main */
 
+
+/* Media main */
 
   .preview{
     height: 251px;
@@ -940,7 +918,6 @@ footer {
  
 /* Media steps */
 
-
   .steps {
     padding: 20px 15px 0px 15px;
     margin-bottom: 21px;
@@ -952,10 +929,10 @@ footer {
     margin-bottom: 20px;    
   }
 
-
-  .steps_card {
+  /* .steps_card {
     width: 111px;
-  }
+  } */
+
   .steps_card_iconholder {
     height: 70px;
     width: 70px;
@@ -993,7 +970,7 @@ footer {
   }
 
 
-/* Media destinations */
+  /* Media destinations */
 
   .destinations {
     margin-bottom: 0px;
@@ -1008,32 +985,23 @@ footer {
   } 
 
   .destinations_card {
-    /* width: 93vw;
-    height: 20.212vh; */
     width: 30%; /* 360px; */
-    /* max-height: 210px; */
     height: auto;
   }
 
   .destinations_card a img{
     width: 100%;
-    /* max-width: 100%;
-    transform: translateY(-20.5%); */
   }
 
   .destinations_card:not(:last-child) {
     margin-right: 15px;
   }
 
-
   .destinations_card p{  
     font-size: 20px;
     line-height: 26px;
     top: 8px;
-    /* left: 15px; */
   }
-
-
 
   .dest_arrow_left, .dest_arrow_right {
     position: absolute;
@@ -1043,13 +1011,11 @@ footer {
   }
 
   .dest_arrow_left {
-    left: 0.9%;
-     
+    left: 0.9%;     
   }
 
   .dest_arrow_right {
     left: 27.85%;
-
   }
 
   .destinations_pagination {
@@ -1057,8 +1023,7 @@ footer {
     top: -30px; 
     margin: 0 auto;
     height: 0px;
-    width: 37px;
-    
+    width: 37px;   
   }
 
   .destination_pagination_circle {
@@ -1070,9 +1035,6 @@ footer {
     height: 8px;
     width: 8px; 
   }
-
-
-
 
   .find_more_button {
     margin-bottom: 20px;
@@ -1088,8 +1050,9 @@ footer {
   }
 
 
-  /* Media stories */
 
+
+  /* Media stories */
 
   .stories_bg{
     padding-bottom: 65px;
@@ -1117,10 +1080,6 @@ footer {
     max-width: 100%;
     min-width: 0;
   }
-
-  /* .stories_card_text{
-    width: 210px;
-  } */
 
   .stories_card h3 {
     margin-top: 5px;
@@ -1158,14 +1117,12 @@ footer {
 
 
 
+
+
  /* Media footer */
 
 
   footer {
-    /* padding: 0 15px;
-    position: absolute;
-    bottom: 0px;
-    width: 100%; */
     height: 65px;
   }
 
@@ -1180,9 +1137,6 @@ footer {
   }
 
 }
-
-
-
 
 
 
