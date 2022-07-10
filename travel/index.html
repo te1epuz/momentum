@@ -10,31 +10,55 @@
 </head>
 <body>
   <div class="wrapper">
-    <header class="header">        
-      <a href="#" class="header_logo_link">
-      <img src="./img/svg/logo.svg" alt="logo" class="header_logo_pic" height="30" width="30">
-      <span>Travel Portal</span>
-      </a>
-      <nav class="header_nav">
-        <ul>
-          <li><a href="#search_box" class="header_nav_link">How It Works</a></li>
-          <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
-          <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
-          <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
-        </ul>
-      </nav>
-      <button class="login_button">Login</button>    
+    <header class="header">
+      <div class="header_wrapper_bg desktop_only"></div> 
+      <div class="header_wrapper">
+        <div class="header_block">
+          <a href="#" class="header_logo_link">
+            <img src="./img/svg/logo.svg" alt="logo" class="header_logo_pic" height="30" width="30">
+            <span class="desktop_only">Travel Portal</span>
+          </a>
+          <nav class="header_nav">
+            <ul>
+              <li class="mobile_only"><a href="#" class="header_nav_close header_nav_link">
+                <img src="./img/svg/close-sign.svg" alt="close">
+              </a></li>
+              <li><a href="#search_box" class="header_nav_link">How It Works</a></li>
+              <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
+              <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
+              <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
+              <li class="mobile_only"><a href="#" class="header_nav_link">Account</a></li>
+              <li class="mobile_only"><a href="#social_links" class="header_nav_link">Social media</a></li>
+            </ul>
+          </nav>
+          <button class="login_button desktop_only">Login</button>   
+
+          <div class="header_burger">
+            <span class="burger_line"></span>
+            <span class="burger_line"></span>
+            <span class="burger_line"></span>        
+          </div>
+
+        </div>        
+      </div>
+
+      <div class="black_bg"></div>
+
+        
+
     </header>
     
     <main>
       <section class="preview">
-        <div class="preview_main_block">
-          <h1>Explore the beauty of the World</h1>
-          <p>Receive personalized recommendations for countries, hotels, activities and more</p>
+        <div class="preview_wrapper">
+          <div class="preview_main_block">
+            <h1 class="desktop_only">Explore the beauty of the World</h1>
+            <p class="desktop_only">Receive personalized recommendations for countries, hotels, activities and more</p>
             <form class="search_box" id="search_box">
-            <input type="text" placeholder="What would you like to do?">
-            <button class="start_button">Start Planning</button>
-          </form>
+              <input type="text" placeholder="What would you like to do?">
+              <button class="start_button">Start Planning</button>
+            </form>
+          </div> 
         </div>
       </section>
       
@@ -70,19 +94,35 @@
       <section class="destinations" id="destinations">
         <h2>POPULAR DESTINATIONS</h2>
         <div class="destinations_cards_container">
+          <img class="mobile_only dest_arrow_left" src="./img/svg/dest_arrow_left.svg" alt="arrow left">
+          <img class="mobile_only dest_arrow_right" src="./img/svg/dest_arrow_right.svg" alt="arrow right">
+          
           <div class="destinations_card">
-            <a href="#"><img src="./img/destination1.jpg" alt="destination 1"></a>
-            <p>NOT MY COUNTRY :(</p>
+            <a href="#">
+              <img class="desktop_only" src="./img/destination1.jpg" alt="destination 1">
+              <img class="mobile_only" src="./img/destination1_mobile.jpg" alt="destination 1 mobile">
+            </a>
+            <p>SPAIN</p>
           </div>
           <div class="destinations_card">
-            <a href="#"><img src="./img/destination2.jpg" alt="destination 2"></a>
+            <a href="#">
+              <img class="desktop_only" src="./img/destination2.jpg" alt="destination 2">
+              <img class="mobile_only" src="./img/destination2_mobile.jpg" alt="destination 2 mobile">
+            </a>
             <p>JAPAN</p>
           </div>
           <div class="destinations_card">
-            <a href="#"><img src="./img/destination3.jpg" alt="destination 3"></a>
+            <a href="#">
+              <img class="desktop_only" src="./img/destination3.jpg" alt="destination 3">
+              <img class="mobile_only" src="./img/destination3_mobile.jpg" alt="destination 3 mobile">
+            </a>
             <p>USA</p>
           </div>
         </div>
+
+
+
+
 
         <div class="destinations_pagination">
           <div class="destination_pagination_circle"></div>
@@ -90,95 +130,119 @@
           <div class="destination_pagination_circle"></div>
         </div>
 
-        <button class="find_more_button"> 
-          <img src="./img/svg/arrow_right.svg" alt="arrow_right"> 
-          <span>Find More</span>
-        </button>
+        <button class="find_more_button">Find More</button>
       </section>
 
       <section class="stories">
-        <h2 id="stories">TRAVEL STORIES</h2>
-        <div class="stories_cards_container">
-          <div class="stories_card">
-            <img src="./img/stories1.jpg" alt="story 1">
-            <div>
-              <h3>10 Photos of Attractive Thailand</h3>
-              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum 
-                dolor sit amet, consectetur adipiscing elit...</p>
-              <a href="#">Read More</a>
-            </div>       
-          </div>
+        <h2 id="stories">TRAVEL STORIES</h2>        
+        <div class="stories_bg">
+          <div class="stories_cards_container">
+            <div class="stories_card">
+              <img class="desktop_only" src="./img/stories1.jpg" alt="story 1">
+              <img class="mobile_only" src="./img/stories1_mobile.jpg" alt="story 1 mobile">
+              <div class="stories_card_text">
+                <h3>10 Photos of Attractive Thailand</h3>
+                <p class="desktop_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                  culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum 
+                  dolor sit amet, consectetur adipiscing elit...</p>
+                <p class="mobile_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                  fugiat nulla.Lorem ipsum dolor sit a...</p>
+                <a href="#">Read More</a>
+              </div>       
+            </div>
+            
+            <div class="stories_card">
+              <img class="desktop_only" src="./img/stories2.jpg" alt="story 2">
+              <img class="mobile_only" src="./img/stories2_mobile.jpg" alt="story 2 mobile">
+              <div class="stories_card_text">
+                <h3>Canyonlands National Park, Utah</h3>
+                <p class="desktop_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                  culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, 
+                  consectetur adipiscing elit...</p>
+                <p class="mobile_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                  fugiat nulla.Lorem ipsum dolor sit a...</p>
+                <a href="#">Read More</a>
+              </div>       
+            </div>
+
+            <div class="stories_card">
+              <img class="desktop_only" src="./img/stories3.jpg" alt="story 3">
+              <img class="mobile_only" src="./img/stories3_mobile.jpg" alt="story 3 mobile">
+              <div class="stories_card_text">
+                <h3>I left my heart in the Mountains!</h3>
+                <p class="desktop_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                  deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur 
+                  adipiscing elit...</p>
+                <p class="mobile_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                  fugiat nulla.Lorem ipsum dolor sit a...</p>
+                <a href="#">Read More</a>
+              </div>       
+            </div>
+
+            <div class="stories_card">
+              <img class="desktop_only" src="./img/stories4.jpg" alt="story 4">
+              <img class="mobile_only" src="./img/stories4_mobile.jpg" alt="story 4 mobile">
+              <div class="stories_card_text">
+                <h3>The Longest journey in my life!</h3>
+                <p class="desktop_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+                  sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
+                  est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                <p class="mobile_only" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                  fugiat nulla.Lorem ipsum dolor sit a...</p>
+                <a href="#">Read More</a>
+              </div>       
+            </div>
           
-          <div class="stories_card">
-            <img src="./img/stories2.jpg" alt="story 2">
-            <div>
-              <h3>Canyonlands National Park, Utah</h3>
-              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                 culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, 
-                 consectetur adipiscing elit...</p>
-              <a href="#">Read More</a>
-            </div>       
-          </div>
-
-          <div class="stories_card">
-            <img src="./img/stories3.jpg" alt="story 3">
-            <div>
-              <h3>I left my heart in the Mountains!</h3>
-              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-                deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit...</p>
-              <a href="#">Read More</a>
-            </div>       
-          </div>
-
-          <div class="stories_card">
-            <img src="./img/stories4.jpg" alt="story 4">
-            <div>
-              <h3>The Longest journey in my life!</h3>
-              <p lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
-                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
-                est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-              <a href="#">Read More</a>
-            </div>       
-          </div>
+            <button class="see_more_button">See More</button>         
         
-          <button class="see_more_button">
-            <img src="./img/svg/arrow_right.svg" alt="arrow_right"> 
-            <span>See More</span>  
-          </button>         
-      
-      </div>        
-
+          </div> 
+        </div>
       </section>
     </main>
   
     <footer>
-      <p>All Rights Reserved © Travel Portal</p>
-      <ul class="social_links">
-        <li><a href="https://github.com/Te1epuz"><img src="./img/svg/social1.svg" alt="social 1" width="32" height="32"></a></li> <!-- was 31x31 -->
-        <li><a href="https://github.com/Te1epuz"><img src="./img/svg/social2.svg" alt="social 2" width="34" height="28"></a></li> <!-- was 28x22 -->
-        <li><a href="https://rs.school/js-stage0/"><img src="./img/svg/social3.svg" alt="social 3" width="33" height="27"></a></li> <!-- was 32x26 -->
-       </ul>
+      <div class="footer_wrapper">
+        <div class="footer_spacer1 desktop_only"> </div>
+        <p class="desktop_only">All Rights Reserved © Travel Portal</p>
+        <ul id="social_links" class="social_links">
+          <li><a href="https://github.com/Te1epuz"><img src="./img/svg/social1.svg" alt="social 1" width="32" height="32"></a></li> <!-- was 31x31 -->
+          <li><a href="https://github.com/Te1epuz"><img src="./img/svg/social2.svg" alt="social 2" width="34" height="28"></a></li> <!-- was 28x22 -->
+          <li><a href="https://rs.school/js-stage0/"><img src="./img/svg/social3.svg" alt="social 3" width="33" height="27"></a></li> <!-- was 32x26 -->
+        </ul>
+        <div class="footer_spacer2 desktop_only"> </div>
+      </div>
     </footer>
   </div>
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/main.js"></script>
 </body>
 </html>
