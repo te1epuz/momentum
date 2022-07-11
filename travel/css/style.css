@@ -863,6 +863,11 @@ footer {
     transition: 0.3s;
   }
 
+  .header_nav_link {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
   .header_nav_active {
     transform: translateX(-175px);
   }
