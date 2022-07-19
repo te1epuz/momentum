@@ -449,9 +449,22 @@ body {
   /* width: 2520px; */
   width: 175%;
   position: relative;
-  left: 50%; 
-  transform: translateX(-50%); 
-} 
+  /* left: 50%;  */
+  margin-left: -37.5%;
+  transition-duration: 0.4s; 
+}
+.courusel_center {
+  transform: translateX(0%);
+}
+
+.courusel_left {
+  transform: translateX(34.1%);
+}
+
+.courusel_right {
+  transform: translateX(-34.1%);
+}
+
 
 .destinations_card {
   border-radius: 16px;
@@ -1005,10 +1018,24 @@ footer {
   .destinations_cards_container {
     width: 307.5%; /* 1110px;*/
     position: relative;
-    left: 15px; 
-    transform: translateX(0%); 
+    margin-left: -92.3%;
+    /* left: 15px;  */
+    /* transform: translateX(0%);  */
     margin-bottom: 10px;
   } 
+
+  .courusel_center {
+    transform: translateX(0%);
+  }
+  
+  .courusel_left {
+    transform: translateX(31.25%);
+  }
+  
+  .courusel_right {
+    transform: translateX(-31.4%);
+  }
+
 
   .destinations_card {
     width: 30%; /* 360px; */
@@ -1032,16 +1059,21 @@ footer {
   .dest_arrow_left, .dest_arrow_right {
     position: absolute;
     width: 15px;
-    top: 44%;
+    top: 42.5%;
     z-index: 20; 
   }
 
   .dest_arrow_left {
-    left: 0.9%;     
+    left: 6.6%;
+    transform: rotate(-180deg);     
   }
 
   .dest_arrow_right {
-    left: 27.85%;
+    right: 6.6%;    
+  }
+
+  .dest_arrow_opacity {
+    opacity: 0.5;
   }
 
   .destinations_pagination {
