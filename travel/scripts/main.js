@@ -18,13 +18,42 @@
   
   menuLink.forEach(link => {
     link.addEventListener('click', () => {
-    menu.classList.remove('header_nav_active');
-    blackBg.classList.remove('black_bg_active'); 
+      menu.classList.remove('header_nav_active');
+      blackBg.classList.remove('black_bg_active'); 
+      });
+  });
+
+  const popUp = document.querySelector('.pop_up');
+  const popUppers = document.querySelectorAll('.pop_upper');
+
+  popUppers.forEach(button => {
+    button.addEventListener('click', () => {
+      popUp.classList.add('pop_up_active');       
+      });
+  });
+
+  popUp.addEventListener('mousedown', (event) => {
+    if (event.target === popUp) {
+    popUp.classList.remove('pop_up_active');}   
+  });
+
+
+  const popUpTogglers = document.querySelectorAll('.pop_up_toggler');
+  const loginWindow = document.querySelector('.login_window');
+  const registerWindow = document.querySelector('.register_window');
+  
+  popUpTogglers.forEach(toggler => {
+    toggler.addEventListener('click', () => {
+      loginWindow.classList.toggle('window_hide');       
+      registerWindow.classList.toggle('window_hide');  
     });
   });
-  
-  let currentDestination = 2;
 
+
+
+
+
+  let currentDestination = 2;
   const paginator = document.querySelector('.destinations_pagination').childNodes;
 
   destinations.addEventListener('click', (event) => {

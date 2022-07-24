@@ -27,11 +27,11 @@
               <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
               <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
               <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
-              <li class="mobile_only"><a href="#" class="header_nav_link">Account</a></li>
+              <li class="mobile_only"><a href="#" class="header_nav_link pop_upper">Account</a></li>
               <li class="mobile_only"><a href="#social_links" class="header_nav_link">Social Media</a></li>
             </ul>
           </nav>
-          <button class="login_button desktop_only">Login</button>   
+          <button class="login_button desktop_only pop_upper">Login</button>   
 
           <div class="header_burger">
             <span class="burger_line"></span>
@@ -41,6 +41,36 @@
         </div>        
       </div>
       <div class="black_bg"></div>
+      
+      <div class="pop_up" id="pop_up">
+        
+        <form class="login_window">
+          <h4>Log in to your account</h4>
+          <button class="button_facebook">Sign In with Facebook</button>
+          <button class="button_google">Sign In with Google</button>
+          <div class="pop_up_or">or</div>          
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password">
+          <button class="button_sign">Sign in</button>
+          <a href="">Firgot Your Password?</a>
+          <p class="pop_up_footer">Don’t have an account? <span class="pop_up_toggler">Register</span></p>
+        </form>
+
+        <form class="register_window window_hide">
+          <h4>Create account</h4>
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password">
+          <button class="button_sign">Sign Up</button>
+          <p class="pop_up_footer">Already have an account? <span class="pop_up_toggler">Log in</span></p>
+        </form>
+        
+      </div>
+
+      
     </header>
     
     <main>
