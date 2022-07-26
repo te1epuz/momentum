@@ -27,25 +27,50 @@
               <li><a href="#search_box" class="header_nav_link">Plan Your Trip</a></li>
               <li><a href="#destinations" class="header_nav_link">Destinations</a></li>
               <li><a href="#stories" class="header_nav_link">Travel Stories</a></li>
-              <li class="mobile_only"><a href="#" class="header_nav_link">Account</a></li>
+              <li class="mobile_only"><a href="#" class="header_nav_link pop_upper">Account</a></li>
               <li class="mobile_only"><a href="#social_links" class="header_nav_link">Social Media</a></li>
             </ul>
           </nav>
-          <button class="login_button desktop_only">Login</button>   
+          <button class="login_button desktop_only pop_upper">Login</button>   
 
           <div class="header_burger">
             <span class="burger_line"></span>
             <span class="burger_line"></span>
-            <span class="burger_line"></span>        
+            <span class="burger_line"></span>
           </div>
-
         </div>        
       </div>
-
       <div class="black_bg"></div>
-
+      
+      <div class="pop_up" id="pop_up">
         
+        <form class="login_window" id="form_login">
+          <h4>Log in to your account</h4>
+          <button class="button_facebook"><span class='logo_facebook'><img src="img/svg/logo_facebook.svg" alt="facebook logo">Sign In with Facebook</span></button>
+          <button class="button_google"><span class='logo_google'><img src="img/svg/logo_google.svg" alt="google logo">Sign In with Google</span></button>
+          <div class="pop_up_or">or</div>      
+          <label for="email">E-mail</label>
+          <input class='email' type="email" name="email">
+          <label for="password">Password</label>
+          <input class='password' type="password" name="password">
+          <button type='submit' class="button_sign">Sign In</button>
+          <a class='forgot_pass' href="">Forgot Your Password?</a>
+          <p class="pop_up_footer">Don’t have an account? <span class="pop_up_toggler">Register</span></p>
+        </form>
 
+        <form class="register_window window_hide" id="form_register">
+          <h4>Create account</h4>
+          <label for="email">E-mail</label>
+          <input class='email' type="email" name="email">
+          <label for="password">Password</label>
+          <input class='password' type="password" name="password">
+          <button type='submit' class="button_sign">Sign Up</button>
+          <p class="pop_up_footer">Already have an account? <span class="pop_up_toggler">Log in</span></p>
+        </form>
+        
+      </div>
+
+      
     </header>
     
     <main>
@@ -93,37 +118,37 @@
       
       <section class="destinations" id="destinations">
         <h2>POPULAR DESTINATIONS</h2>
-        <div class="destinations_cards_container">
-          <img class="mobile_only dest_arrow_left" src="./img/svg/dest_arrow_left.svg" alt="arrow left">
-          <img class="mobile_only dest_arrow_right" src="./img/svg/dest_arrow_right.svg" alt="arrow right">
+        <div class="destinations_cards_container courusel_center" id="destinations_cards_container">
+
           
           <div class="destinations_card">
-            <a href="#">
+            <a href="">
               <img class="desktop_only" src="./img/destination1.jpg" alt="destination 1">
-              <img class="mobile_only" src="./img/destination1_mobile.jpg" alt="destination 1 mobile">
+              <img class="mobile_only" src="./img/destination1_mobile.jpg" alt="destination 1">
             </a>
             <p>SPAIN</p>
           </div>
           <div class="destinations_card">
-            <a href="#">
+            <a href="">
               <img class="desktop_only" src="./img/destination2.jpg" alt="destination 2">
-              <img class="mobile_only" src="./img/destination2_mobile.jpg" alt="destination 2 mobile">
+              <img class="mobile_only" src="./img/destination2_mobile.jpg" alt="destination 2">
             </a>
             <p>JAPAN</p>
           </div>
           <div class="destinations_card">
-            <a href="#">
+            <a href="">
               <img class="desktop_only" src="./img/destination3.jpg" alt="destination 3">
-              <img class="mobile_only" src="./img/destination3_mobile.jpg" alt="destination 3 mobile">
+              <img class="mobile_only" src="./img/destination3_mobile.jpg" alt="destination 3">
             </a>
             <p>USA</p>
           </div>
         </div>
-
-
-
-
-
+        
+        <div id="arrowleft">
+          <img class="mobile_only dest_arrow_left" src="./img/svg/dest_arrow_right.svg" alt="arrow left">
+        </div>
+        <img class="mobile_only dest_arrow_right" src="./img/svg/dest_arrow_right.svg" alt="arrow right" id="arrowright">
+        
         <div class="destinations_pagination">
           <div class="destination_pagination_circle"></div>
           <div class="destination_pagination_circle_active"></div>
@@ -220,7 +245,7 @@
                 <a href="#">Read More</a>
               </div>       
             </div>
-          
+                      
             <button class="see_more_button">See More</button>         
         
           </div> 

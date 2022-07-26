@@ -449,9 +449,22 @@ body {
   /* width: 2520px; */
   width: 175%;
   position: relative;
-  left: 50%; 
-  transform: translateX(-50%); 
-} 
+  /* left: 50%;  */
+  margin-left: -37.5%;
+  transition-duration: 0.4s; 
+}
+.courusel_center {
+  transform: translateX(0%);
+}
+
+.courusel_left {
+  transform: translateX(34.1%);
+}
+
+.courusel_right {
+  transform: translateX(-34.1%);
+}
+
 
 .destinations_card {
   border-radius: 16px;
@@ -738,6 +751,224 @@ footer {
 
 
 
+/* POP UP start */
+
+.pop_up{  
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(46, 46, 46, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.pop_up_active{
+  display: block;
+}
+
+.window_hide {
+  display: none;
+}
+
+.login_window, .register_window{
+  position: relative;
+  top: 100px;  
+
+  width: 100vw;
+  max-width: 650px;
+  margin: auto;
+  padding: 25px 45px 23px 45px;
+
+  background:linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.pop_up h4{
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;  
+  color: #0D606F;
+  text-align: center;
+}
+
+.button_facebook, .button_google, .button_sign{
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  border: 0;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+
+.button_facebook:hover, .button_google:hover, .button_sign:hover {
+  box-shadow: none;
+  transition-duration: 0.4s; 
+  cursor: pointer;
+}
+
+
+.button_facebook{
+  background: #1877F2;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.logo_facebook, .logo_google {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button_google{
+  background: #FFFFFF;
+  color: #0D606F;
+  margin-bottom: 29px;
+
+}
+
+.pop_up_or {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  margin: 0px;
+  margin-bottom: 10px;
+
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: rgba(13, 96, 111, 0.5);
+  
+}
+.pop_up_or:before,
+.pop_up_or:after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.35);
+  height: 1px;
+}
+.pop_up_or:before {
+  margin-right: 10px;
+}
+.pop_up_or:after {
+  margin-left: 10px;
+}
+
+
+
+.pop_up label{
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #0D606F;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.pop_up input {
+  display: block;
+  width: 100%;
+  /* height: 45px;   */
+  padding: 14px;
+  color: #0D606F;
+  border: 0;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.email {
+  margin-bottom: 20px;
+}
+
+.password {
+  margin-bottom: 25px;
+}
+
+.button_sign {  
+  background: #0D606F;
+  color: #FFFFFF;  
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 14px 0;
+}
+
+.forgot_pass {
+  display: block;
+  text-align: center;
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-decoration-line: underline;
+  color: #0D606F;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  margin-bottom: 25px;
+}
+
+.pop_up_footer {
+  text-align: center;
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: rgba(13, 96, 111, 0.5);
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  margin: 0;
+}
+
+.pop_up_toggler {
+  color: rgba(13, 96, 111, 1);
+  cursor: pointer;
+}
+
+.pop_up_footer::before {
+  content: "";
+  display: block;
+  border-bottom: 1px solid rgba(13, 96, 111, 0.5);
+  margin-bottom: 22px;
+  margin-top: 26px;
+} 
+
+
+
+
+
+
+
+/* POP UP end */
+
+
+
+
+
 
 /* Media start */
 
@@ -1005,10 +1236,24 @@ footer {
   .destinations_cards_container {
     width: 307.5%; /* 1110px;*/
     position: relative;
-    left: 15px; 
-    transform: translateX(0%); 
+    margin-left: -92.3%;
+    /* left: 15px;  */
+    /* transform: translateX(0%);  */
     margin-bottom: 10px;
   } 
+
+  .courusel_center {
+    transform: translateX(0%);
+  }
+  
+  .courusel_left {
+    transform: translateX(31.25%);
+  }
+  
+  .courusel_right {
+    transform: translateX(-31.4%);
+  }
+
 
   .destinations_card {
     width: 30%; /* 360px; */
@@ -1032,16 +1277,21 @@ footer {
   .dest_arrow_left, .dest_arrow_right {
     position: absolute;
     width: 15px;
-    top: 44%;
+    top: 42.5%;
     z-index: 20; 
   }
 
   .dest_arrow_left {
-    left: 0.9%;     
+    left: 6.6%;
+    transform: rotate(-180deg);     
   }
 
   .dest_arrow_right {
-    left: 27.85%;
+    right: 6.6%;    
+  }
+
+  .dest_arrow_opacity {
+    opacity: 0.5;
   }
 
   .destinations_pagination {
