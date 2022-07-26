@@ -50,9 +50,6 @@
   });
 
 
-
-
-
   let currentDestination = 2;
   const paginator = document.querySelector('.destinations_pagination').childNodes;
 
@@ -132,5 +129,19 @@
 
   }) 
   
-   
+  
+  const formLogin = document.getElementById('form_login');
+  formLogin.addEventListener("submit", function (event) {
+    event.preventDefault();   
+    alert(`Login: ${formLogin.elements["email"].value} \nPassword: ${formLogin.elements["password"].value}`);
+  });
+
+  const formRegister = document.getElementById('form_register');
+  formRegister.addEventListener("submit", function (event) {
+    event.preventDefault();   
+    alert(`Register: ${formRegister.elements["email"].value} \nPassword: ${formRegister.elements["password"].value}`);
+  });
+
+
+
 }());

@@ -44,27 +44,27 @@
       
       <div class="pop_up" id="pop_up">
         
-        <form class="login_window">
+        <form class="login_window" id="form_login">
           <h4>Log in to your account</h4>
-          <button class="button_facebook">Sign In with Facebook</button>
-          <button class="button_google">Sign In with Google</button>
-          <div class="pop_up_or">or</div>          
+          <button class="button_facebook"><span class='logo_facebook'><img src="img/svg/logo_facebook.svg" alt="facebook logo">Sign In with Facebook</span></button>
+          <button class="button_google"><span class='logo_google'><img src="img/svg/logo_google.svg" alt="google logo">Sign In with Google</span></button>
+          <div class="pop_up_or">or</div>      
           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email">
+          <input class='email' type="email" name="email">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password">
-          <button class="button_sign">Sign in</button>
-          <a href="">Firgot Your Password?</a>
+          <input class='password' type="password" name="password">
+          <button type='submit' class="button_sign">Sign In</button>
+          <a class='forgot_pass' href="">Forgot Your Password?</a>
           <p class="pop_up_footer">Don’t have an account? <span class="pop_up_toggler">Register</span></p>
         </form>
 
-        <form class="register_window window_hide">
+        <form class="register_window window_hide" id="form_register">
           <h4>Create account</h4>
           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email">
+          <input class='email' type="email" name="email">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password">
-          <button class="button_sign">Sign Up</button>
+          <input class='password' type="password" name="password">
+          <button type='submit' class="button_sign">Sign Up</button>
           <p class="pop_up_footer">Already have an account? <span class="pop_up_toggler">Log in</span></p>
         </form>
         
