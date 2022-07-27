@@ -1412,8 +1412,19 @@ footer {
     width: 140px;
   }
 
+
+
+.login_window, .register_window{
+   top: 0px;  
 }
 
+.pop_up h4 {
+  font-size: 24px;
+  line-height: normal;  
+
+}
+
+}
 
 
 @media screen and (max-width: 380px) {
@@ -1425,6 +1436,11 @@ footer {
     margin-left: 2px;
   }
 }
+
+
+
+
+
 
 
 

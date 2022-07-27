@@ -37,6 +37,12 @@
     popUp.classList.remove('pop_up_active');}   
   });
 
+  document.addEventListener('keydown', (event) => {
+    if (event.key == 'Escape') {  
+      popUp.classList.remove('pop_up_active');
+   }
+});
+
 
   const popUpTogglers = document.querySelectorAll('.pop_up_toggler');
   const loginWindow = document.querySelector('.login_window');
