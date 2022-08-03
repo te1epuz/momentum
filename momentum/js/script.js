@@ -170,6 +170,8 @@ let isPlay = false;
 let playNum = 0;
 const audio = new Audio();
 import playList from './playlist.js'
+audio.src = playList[playNum].src
+document.querySelector("#track").textContent = playList[playNum].title;
 
 function playAudio() {
   if (!isPlay) {
@@ -178,7 +180,8 @@ function playAudio() {
     audio.play();
     isPlay = true;
     play.classList.add('pause')
-    playListContainer.childNodes[playNum].classList.add('item-active');
+    playListContainer.childNodes[playNum].classList.add('item-active');    
+    document.querySelector("#track").textContent = playList[playNum].title;
   }
   else {
     audio.pause();
@@ -217,9 +220,66 @@ playList.forEach(el => {
 })
 
 playListContainer.addEventListener('click', (event) => {
-  playListContainer.childNodes[playNum].classList.remove('item-active');
-  playNum = Array.prototype.indexOf.call(event.target.parentElement.children, event.target);
-  isPlay = false;  
-  playAudio();
+  
+  if (event.target.classList.contains('item-active')) {    
+    playAudio();
+  }
+  else {
+    playListContainer.childNodes[playNum].classList.remove('item-active');
+    playNum = Array.prototype.indexOf.call(event.target.parentElement.children, event.target);
+    isPlay = false;
+    playAudio();
+  }
 })
+
+
+
+
+ 
+
+
+
+const volumeSlider = document.getElementById("soundVolume");
+volumeSlider.addEventListener('click', e => {
+  const sliderWidth = window.getComputedStyle(volumeSlider).width;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audio.volume = newVolume;
+}, false)
+
+setInterval(() => {
+  const progressBar = document.querySelector("#progress");
+  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+  document.querySelector("#timer").textContent = getTimeCodeFromNum(audio.currentTime);
+  document.querySelector("#duration").textContent = getTimeCodeFromNum(audio.duration);
+}, 500);  
+
+const timeline = document.querySelector(".duration-player");
+timeline.addEventListener("click", e => {
+  const timelineWidth = window.getComputedStyle(timeline).width;
+  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+  audio.currentTime = timeToSeek;
+}, false);
+
+function getTimeCodeFromNum(num) {
+  let seconds = parseInt(num);
+  let minutes = parseInt(seconds / 60);
+  seconds -= minutes * 60;
+  const hours = parseInt(minutes / 60);
+  minutes -= hours * 60;
+  if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+  return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+    seconds % 60
+  ).padStart(2, 0)}`;
+}
+
+document.querySelector("#muteButton").addEventListener("click", () => {
+  const volumeEl = document.querySelector("#muteButton");
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    volumeEl.style.opacity = 0.35;
+    
+  } else {
+    volumeEl.style.opacity = 1;
+  }
+});
 
