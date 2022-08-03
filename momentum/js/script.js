@@ -170,13 +170,11 @@ let isPlay = false;
 let playNum = 0;
 const audio = new Audio();
 import playList from './playlist.js'
-audio.src = playList[playNum].src
+audio.src = playList[playNum].src 
 document.querySelector("#track").textContent = playList[playNum].title;
 
 function playAudio() {
-  if (!isPlay) {
-    audio.src = playList[playNum].src
-    audio.currentTime = 0;
+  if (!isPlay) {    
     audio.play();
     isPlay = true;
     play.classList.add('pause')
@@ -197,7 +195,8 @@ function playNext() {
   playListContainer.childNodes[playNum].classList.remove('item-active');
   playNum++;
   if (playNum > 3) { playNum = 0 };
-  isPlay = false;  
+  isPlay = false;
+  audio.src = playList[playNum].src  
   playAudio();
 }
 playNextBtn.addEventListener('click', playNext);
@@ -207,6 +206,7 @@ function playPrev() {
   playNum--;
   if (playNum < 0) { playNum = 3 };
   isPlay = false;
+  audio.src = playList[playNum].src
   playAudio();
 }
 playPrevBtn.addEventListener('click', playPrev);
@@ -228,6 +228,7 @@ playListContainer.addEventListener('click', (event) => {
     playListContainer.childNodes[playNum].classList.remove('item-active');
     playNum = Array.prototype.indexOf.call(event.target.parentElement.children, event.target);
     isPlay = false;
+    audio.src = playList[playNum].src
     playAudio();
   }
 })
