@@ -118,27 +118,37 @@ slidePrev.addEventListener('click', getSlidePrev)
 
 
 async function getWeather() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city_block.value}&lang=ru&appid=${weatherApi}&units=metric`;
-  const res = await fetch(url);
+  
+  try {
 
-  if (res.ok) {
-    weatherError.textContent = ``;
-    const data = await res.json();
-    weatherIcon.className = 'weather-icon owf';
-    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-    temperature.textContent = `${Math.round(data.main.temp)}°C`;
-    weatherDescription.textContent = `${data.weather[0].description}`;
-    windSpeed.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`;
-    humidity.textContent = `Влажность: ${data.main.humidity}%`;
-  } 
-  else {    
-    weatherIcon.className = 'weather-icon owf';
-    temperature.textContent = ``;
-    weatherDescription.textContent = ``;
-    windSpeed.textContent = ``;
-    humidity.textContent = ``;
-    weatherError.textContent = `Ошибка!!! Город '${city_block.value}' не найден!`;
-  } 
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city_block.value}&lang=ru&appid=${weatherApi}&units=metric`;
+    const res = await fetch(url);
+  
+    if (res.ok) {
+      weatherError.textContent = ``;
+      const data = await res.json();
+      weatherIcon.className = 'weather-icon owf';
+      weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+      temperature.textContent = `${Math.round(data.main.temp)}°C`;
+      weatherDescription.textContent = `${data.weather[0].description}`;
+      windSpeed.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`;
+      humidity.textContent = `Влажность: ${data.main.humidity}%`;
+    } 
+    else {    
+      weatherIcon.className = 'weather-icon owf';
+      temperature.textContent = ``;
+      weatherDescription.textContent = ``;
+      windSpeed.textContent = ``;
+      humidity.textContent = ``;
+      weatherError.textContent = `Ошибка!!! Город '${city_block.value}' не найден!`;
+    } 
+
+  } catch (err) {
+  
+    console.log ('errorrr', err)
+  
+  }
+  
    
 }
 window.addEventListener('load', getWeather);
