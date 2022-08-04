@@ -24,7 +24,7 @@ const changeQuote = document.querySelector('.change-quote');
 
 function showTime() {
   const date = new Date();
-  const currentTime = date.toLocaleTimeString();
+  const currentTime = date.toLocaleTimeString('en-GB');
   time_block.textContent = currentTime;
 
   showDate();
