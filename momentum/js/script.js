@@ -20,11 +20,95 @@ const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 
 
+const lang_block = document.querySelector('.opt_language');
+const lang_span = document.querySelector('.language');
+
+
+const dictionary = {
+  en : {
+    night: 'Good night',
+    morning : 'Good morning',
+    afternoon: 'Good afternoon',
+    evening: 'Good evening',
+    windSpeed: 'Wind Speed',
+    humidity: 'Humidity',
+    locale: 'en-US',
+    lang: 'Language',
+    defaultCity: 'Minsk'
+  },
+  ru : {
+    night: 'Доброй ночи',
+    morning : 'Доброе утро',
+    afternoon: 'Добрый день',
+    evening: 'Добрый вечер',
+    windSpeed: 'Скорость ветра',
+    humidity: 'Влажность',
+    locale: 'ru-RU',
+    lang: 'Язык',
+    defaultCity: 'Mинск'
+  }
+}
+
+let lang;
+if (localStorage.getItem('lang')) {
+  lang = localStorage.getItem('lang');
+}
+else { lang = navigator.language || navigator.userLanguage; };
+if (!(lang in dictionary)){ lang= 'en'} 
+document.getElementById(lang).checked = true; 
+lang_span.textContent = `${dictionary[lang].lang}: `;
+
+function setLocalStorage() {
+  localStorage.setItem('name', name_block.value);
+  localStorage.setItem('city', city_block.value || dictionary[lang].defaultCity); 
+  localStorage.setItem('lang', lang); 
+}
+window.addEventListener('beforeunload', setLocalStorage)
+
+function getLocalStorage() {
+  // if(localStorage.getItem('lang')) {
+  //   lang = localStorage.getItem('lang');
+  // }
+  // else { lang = navigator.language || navigator.userLanguage; };
+  // if (!(lang in dictionary)){ lang= 'en'} 
+  // document.getElementById(lang).checked = true;
+
+  if(localStorage.getItem('name')) {
+    name_block.value = localStorage.getItem('name');
+  }
+  else { name_block.placeholder = '[enter Name]'};
+
+  if(localStorage.getItem('city')) {
+    city_block.value = localStorage.getItem('city');
+  }
+  else { city_block.value = dictionary[lang].defaultCity}; 
+  
+}
+window.addEventListener('load', getLocalStorage)
+
+
+
+
+
+function setLanguage() { 
+  lang = document.querySelector('input[name="language"]:checked').value;
+  getWeather();
+  lang_span.textContent = `${dictionary[lang].lang}: `;
+} 
+
+document.querySelectorAll("input[name='language']").forEach((input) => {
+  input.addEventListener('change', setLanguage);
+});
+
+
+
+
+
 
 
 function showTime() {
   const date = new Date();
-  const currentTime = date.toLocaleTimeString('en-GB');
+  const currentTime = date.toLocaleTimeString(dictionary[lang].locale);
   time_block.textContent = currentTime;
 
   showDate();
@@ -39,7 +123,7 @@ showTime();
 function showDate() {
   const date = new Date();
   const options = {weekday: 'long', month: 'long', day: 'numeric'};
-  const currentDate = date.toLocaleDateString('en-US', options);
+  const currentDate = date.toLocaleDateString(dictionary[lang].locale, options);
   date_block.textContent = currentDate;
 }
 
@@ -55,30 +139,12 @@ function getTimeOfDay() {
 }
 
 function showGreeting() {
-  greeting_block.textContent = `Good ${getTimeOfDay()},`;
+  greeting_block.textContent = `${dictionary[lang][getTimeOfDay()]},`;
 }
 
 
 
-function setLocalStorage() {
-  localStorage.setItem('name', name_block.value);
-  localStorage.setItem('city', city_block.value); 
-}
-window.addEventListener('beforeunload', setLocalStorage)
 
-function getLocalStorage() {
-  if(localStorage.getItem('name')) {
-    name_block.value = localStorage.getItem('name');
-  }
-  else { name_block.placeholder = '[enter Name]'};
-
-  if(localStorage.getItem('city')) {
-    city_block.value = localStorage.getItem('city');
-  }
-  else { city_block.value = 'Minsk'}; 
-  // getWeather()
-}
-window.addEventListener('load', getLocalStorage)
 
 
 let randomNum;
@@ -119,7 +185,7 @@ slidePrev.addEventListener('click', getSlidePrev)
 
 async function getWeather() {  
   try {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city_block.value}&lang=ru&appid=${weatherApi}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city_block.value}&lang=${lang}&appid=${weatherApi}&units=metric`;
     const res = await fetch(url);  
     if (res.ok) {
       weatherError.textContent = ``;
@@ -128,8 +194,8 @@ async function getWeather() {
       weatherIcon.classList.add(`owf-${data.weather[0].id}`);
       temperature.textContent = `${Math.round(data.main.temp)}°C`;
       weatherDescription.textContent = `${data.weather[0].description}`;
-      windSpeed.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} м/с`;
-      humidity.textContent = `Влажность: ${data.main.humidity}%`;
+      windSpeed.textContent = `${dictionary[lang].windSpeed}: ${Math.round(data.wind.speed)} м/с`;
+      humidity.textContent = `${dictionary[lang].humidity}: ${data.main.humidity}%`;
     } 
     else {    
       weatherIcon.className = 'weather-icon owf';
@@ -283,6 +349,10 @@ document.querySelector("#muteButton").addEventListener("click", () => {
     volumeEl.style.opacity = 1;
   }
 });
+
+
+
+
 
 
 

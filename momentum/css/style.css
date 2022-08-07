@@ -374,6 +374,27 @@ body {
   min-height: 20px;
 }
 
+
+
+
+
+
+
+.language_radio {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .time {
     min-height: 80px;
