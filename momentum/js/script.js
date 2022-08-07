@@ -117,13 +117,10 @@ slidePrev.addEventListener('click', getSlidePrev)
 
 
 
-async function getWeather() {
-  
+async function getWeather() {  
   try {
-
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city_block.value}&lang=ru&appid=${weatherApi}&units=metric`;
-    const res = await fetch(url);
-  
+    const res = await fetch(url);  
     if (res.ok) {
       weatherError.textContent = ``;
       const data = await res.json();
@@ -142,14 +139,9 @@ async function getWeather() {
       humidity.textContent = ``;
       weatherError.textContent = `Ошибка!!! Город '${city_block.value}' не найден!`;
     } 
-
-  } catch (err) {
-  
-    console.log ('errorrr', err)
-  
-  }
-  
-   
+  } catch (err) {  
+    console.log ('errorrr', err)  
+  }   
 }
 window.addEventListener('load', getWeather);
 city_block.addEventListener('change', getWeather);
@@ -251,11 +243,9 @@ playListContainer.addEventListener('click', (event) => {
 
 
 const volumeSlider = document.getElementById("soundVolume");
-volumeSlider.addEventListener('click', e => {
-  const sliderWidth = window.getComputedStyle(volumeSlider).width;
-  const newVolume = e.offsetX / parseInt(sliderWidth);
-  audio.volume = newVolume;
-}, false)
+volumeSlider.addEventListener('input', e => {
+    audio.volume = e.target.value; 
+}, false);
 
 setInterval(() => {
   const progressBar = document.querySelector("#progress");
@@ -293,4 +283,6 @@ document.querySelector("#muteButton").addEventListener("click", () => {
     volumeEl.style.opacity = 1;
   }
 });
+
+
 
