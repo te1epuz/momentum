@@ -378,12 +378,19 @@ body {
 
 
 
+.options {
+  text-align: left;
+  line-height: 200%;
+}
 
-
-.language_radio {
+.language_radio, .photoSource_radio {
   cursor: pointer;
 }
 
+.language, .photoSource, .photoTheme {
+  display: inline-block;
+  width: 120px;
+}
 
 
 

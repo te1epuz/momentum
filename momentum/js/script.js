@@ -19,9 +19,14 @@ const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 
-
 const lang_block = document.querySelector('.opt_language');
 const lang_span = document.querySelector('.language');
+const photoSource_span = document.querySelector('.photoSource');
+
+const unsplashApi = 'It8bvh6_grp0Wrv-jf-vTUaq8nvzLpYu7lKgVdSZzDc';
+const flickrApi = '8ba8a60325cbf22fe03fc4729a0c872d';
+
+const photoTheme_block = document.querySelector('.photoThemeInput');
 
 
 const dictionary = {
@@ -30,22 +35,26 @@ const dictionary = {
     morning : 'Good morning',
     afternoon: 'Good afternoon',
     evening: 'Good evening',
+    namePlaceholder: '[enter Name]',
     windSpeed: 'Wind Speed',
     humidity: 'Humidity',
     locale: 'en-US',
     lang: 'Language',
-    defaultCity: 'Minsk'
+    photoSource: 'Photo Source',
+    defaultCity: 'Minsk'    
   },
   ru : {
     night: 'Доброй ночи',
     morning : 'Доброе утро',
     afternoon: 'Добрый день',
     evening: 'Добрый вечер',
+    namePlaceholder: '[введите имя]',
     windSpeed: 'Скорость ветра',
     humidity: 'Влажность',
     locale: 'ru-RU',
     lang: 'Язык',
-    defaultCity: 'Mинск'
+    photoSource: 'Источник фото',
+    defaultCity: 'Минск'
   }
 }
 
@@ -56,33 +65,48 @@ if (localStorage.getItem('lang')) {
 else { lang = navigator.language || navigator.userLanguage; };
 if (!(lang in dictionary)){ lang= 'en'} 
 document.getElementById(lang).checked = true; 
-lang_span.textContent = `${dictionary[lang].lang}: `;
+
+setLanguage()
+
+let photoSource; 
+if (localStorage.getItem('photoSource')) {
+  photoSource = localStorage.getItem('photoSource');
+}
+else { photoSource = 'github'};
+document.getElementById(photoSource).checked = true; 
+
 
 function setLocalStorage() {
   localStorage.setItem('name', name_block.value);
   localStorage.setItem('city', city_block.value || dictionary[lang].defaultCity); 
-  localStorage.setItem('lang', lang); 
+  localStorage.setItem('lang', lang);
+  localStorage.setItem('photoSource', photoSource);
+  localStorage.setItem('photoTheme', photoTheme_block.value);
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
 function getLocalStorage() {
-  // if(localStorage.getItem('lang')) {
-  //   lang = localStorage.getItem('lang');
-  // }
-  // else { lang = navigator.language || navigator.userLanguage; };
-  // if (!(lang in dictionary)){ lang= 'en'} 
-  // document.getElementById(lang).checked = true;
-
+  
   if(localStorage.getItem('name')) {
     name_block.value = localStorage.getItem('name');
   }
-  else { name_block.placeholder = '[enter Name]'};
+  else { name_block.placeholder = dictionary[lang].namePlaceholder};
 
   if(localStorage.getItem('city')) {
     city_block.value = localStorage.getItem('city');
   }
   else { city_block.value = dictionary[lang].defaultCity}; 
   
+  if(localStorage.getItem('photoSource')) {
+    photoSource = localStorage.getItem('photoSource');
+  }
+  else { };
+  
+  if(localStorage.getItem('photoTheme')) {
+    photoTheme_block.value = localStorage.getItem('photoTheme');
+  }
+  else { };
+
 }
 window.addEventListener('load', getLocalStorage)
 
@@ -90,14 +114,20 @@ window.addEventListener('load', getLocalStorage)
 
 
 
+
 function setLanguage() { 
   lang = document.querySelector('input[name="language"]:checked').value;
-  getWeather();
   lang_span.textContent = `${dictionary[lang].lang}: `;
+  photoSource_span.textContent = `${dictionary[lang].photoSource}: `;
+  name_block.placeholder = dictionary[lang].namePlaceholder;
 } 
 
 document.querySelectorAll("input[name='language']").forEach((input) => {
-  input.addEventListener('change', setLanguage);
+  input.addEventListener('change', function () {
+    setLanguage();
+    getWeather();
+    getQuotes();
+  });
 });
 
 
@@ -146,7 +176,6 @@ function showGreeting() {
 
 
 
-
 let randomNum;
 function getRandomNum() {
   randomNum = Math.floor(Math.random() * 20 + 1).toString().padStart(2, "0");
@@ -154,15 +183,38 @@ function getRandomNum() {
 }
 getRandomNum();
 
-function setBg() {
-  const timeOfDay = getTimeOfDay();
-  const img = new Image();
-  img.src = `https://raw.githubusercontent.com/Te1epuz/momentum-images/main/images/${timeOfDay}/${randomNum}.jpg`
+async function setBg() {  
+  
+  const img = new Image();  
+  photoSource = document.querySelector('input[name="photoSource"]:checked').value;
+  let theme = photoTheme_block.value || getTimeOfDay(); 
+
+  if (photoSource === 'unsplash') {
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${theme}&client_id=${unsplashApi}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    img.src = data.urls.regular;
+  } else if (photoSource === 'flickr') {
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrApi}&tags=${theme}&extras=url_l&format=json&nojsoncallback=1`
+    const res = await fetch(url);
+    const data = await res.json();
+    img.src = data.photos.photo[parseInt(randomNum, 10)].url_l;
+  } else {
+    img.src = `https://raw.githubusercontent.com/Te1epuz/momentum-images/main/images/${getTimeOfDay()}/${randomNum}.jpg`;
+  }
+
   img.onload = () => {      
     body.style.backgroundImage = `url(${img.src})`;
   };
 }
-setBg()
+window.addEventListener('load', setBg); 
+
+document.querySelectorAll("input[name='photoSource']").forEach((input) => {
+  input.addEventListener('change', setBg);
+});
+
+photoTheme_block.addEventListener('change', setBg);
+
 
 
 
@@ -179,6 +231,7 @@ function getSlidePrev() {
 }
 slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
+
 
 
 
@@ -217,14 +270,14 @@ city_block.addEventListener('change', getWeather);
 
 
 async function getQuotes() {  
-  const quotes = 'https://type.fit/api/quotes';
+  const quotes = './assets/quotes.json'
   const res = await fetch(quotes);
   const data = await res.json();
-  const quoteNum = Math.floor(Math.random() * data.length);    
-  quote.textContent = data[quoteNum]['text'];
-  author.textContent = data[quoteNum]['author'];
+  const quoteNum = Math.floor(Math.random() * data[lang].length);  
+  quote.textContent = data[lang][quoteNum]['text'];
+  author.textContent = data[lang][quoteNum]['author'];
 }
-getQuotes();
+window.addEventListener('load', getQuotes);
 changeQuote.addEventListener('click', getQuotes);
 
 
@@ -287,8 +340,7 @@ playList.forEach(el => {
   playListContainer.append(li);
 })
 
-playListContainer.addEventListener('click', (event) => {
-  
+playListContainer.addEventListener('click', (event) => {  
   if (event.target.classList.contains('item-active')) {    
     playAudio();
   }
