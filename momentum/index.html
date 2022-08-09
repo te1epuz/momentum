@@ -9,18 +9,14 @@
   <title>momentum</title>
 </head>
 <body id="body">
+
   <header class="header">
-    <div class="player">
-      
-           
+    <div class="player">             
       <div class="player-controls">
         <button class="play-prev player-icon"></button>
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
       </div>
-
-
-
       <div class="header-player-container">   
         <div id="title" class="artSong-header">
           <span id="track">Track name</span>
@@ -43,49 +39,10 @@
           </div>   
         </div> 
         </div> 
-
-      
-
       <ul class="play-list"></ul>
     </div>  
 
-    <div class="options">      
-      <div class="opt_language"> 
-        <span class="language">Language:</span>        
-        <input type="radio" class="language_radio" id="en"
-        name="language" value="en">
-        <label class="language_radio" for="en">english</label> 
-
-        <input type="radio" class="language_radio"  id="ru"
-        name="language" value="ru">
-        <label class="language_radio" for="ru">русский</label>
-      </div>
-
-      <div class="opt_photoSource"> 
-        <span class="photoSource">Photo source:</span>        
-        <input type="radio" class="photoSource_radio" id="github"
-        name="photoSource" value="github">
-        <label class="photoSource_radio" for="github">Github</label>        
-        
-        <input type="radio" class="photoSource_radio" id="unsplash"
-        name="photoSource" value="unsplash">
-        <label class="photoSource_radio" for="unsplash">Unsplash</label>
-
-        <input type="radio" class="photoSource_radio" id="flickr"
-        name="photoSource" value="flickr">
-        <label class="photoSource_radio" for="flickr">Flickr</label>
-      </div>
-
-      <div class="opt_photoTheme">
-        <span class="photoTheme">Photo theme:</span>
-        <input type="text" class="photoThemeInput">
-      </div>
-
-
-
-
-
-    </div>
+    
 
     <div class="weather">
       <input type="text" class="city" />
@@ -112,6 +69,12 @@
       <span class="greeting"></span>
       <input type="text" class="name" />
     </div>
+
+    
+
+
+
+
   </main>
   <footer class="footer">
     <button class="change-quote"></button>
@@ -119,7 +82,84 @@
       <div class="quote"></div>
       <div class="author"></div>
     </div>
+  
+    
+  
+    
+  
   </footer>
+
+  <button class="button_options"></button>
+
+  <div class="options_bg hidden"></div>
+
+  <div class="options hidden">
+    <button class="button_options_close"></button>      
+    <div class="opt_language"> 
+      <span class="language">Language:</span>        
+      <input type="radio" class="language_radio" id="en"
+      name="language" value="en">
+      <label class="language_radio" for="en">english</label> 
+
+      <input type="radio" class="language_radio"  id="ru"
+      name="language" value="ru">
+      <label class="language_radio" for="ru">русский</label>
+    </div>
+
+    <div class="opt_photoSource"> 
+      <span class="photoSource">Photo source:</span>        
+      <input type="radio" class="photoSource_radio" id="github"
+      name="photoSource" value="github">
+      <label class="photoSource_radio" for="github">Github</label>        
+      
+      <input type="radio" class="photoSource_radio" id="unsplash"
+      name="photoSource" value="unsplash">
+      <label class="photoSource_radio" for="unsplash">Unsplash</label>
+
+      <input type="radio" class="photoSource_radio" id="flickr"
+      name="photoSource" value="flickr">
+      <label class="photoSource_radio" for="flickr">Flickr</label>
+    </div>
+
+    <div class="opt_photoTheme">
+      <span class="photoTheme">Photo theme:</span>
+      <input type="text" class="photoThemeInput">
+    </div>
+
+    <div class="opt_visibility">
+      <span class="visibility">Show elements:</span>
+      <ul class="visibility_ul">
+        <li>
+          <input type="checkbox" name="visibility_checkbox" value="player" id="checkbox_player">
+          <label class="visibility_checkbox" for="checkbox_player">Player</label>
+        </li>
+        <li>
+          <input type="checkbox" name="visibility_checkbox" value="weather" id="checkbox_weather">
+          <label class="visibility_checkbox" for="checkbox_weather">Weather</label>
+        </li>
+        <li>
+          <input type="checkbox" name="visibility_checkbox" value="time" id="checkbox_time">
+          <label class="visibility_checkbox" for="checkbox_time">Time</label>
+        </li>
+        <li>
+          <input type="checkbox" name="visibility_checkbox" value="date" id="checkbox_date">
+          <label class="visibility_checkbox" for="checkbox_date">Date</label>
+        </li>
+        <li>
+          <input type="checkbox" name="visibility_checkbox" value="greeting-container" id="checkbox_greeting-container">
+          <label class="visibility_checkbox" for="checkbox_greeting-container">Greeting</label>
+        </li>
+        <li>
+          <input type="checkbox" name="visibility_checkbox" value="footer" id="checkbox_footer">
+          <label class="visibility_checkbox" for="checkbox_footer">Quote</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+
+
+
   <script type="module" src="js/script.js"></script>
 </body>
 </html>

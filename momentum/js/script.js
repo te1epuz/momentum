@@ -19,7 +19,6 @@ const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 
-const lang_block = document.querySelector('.opt_language');
 const lang_span = document.querySelector('.language');
 const photoSource_span = document.querySelector('.photoSource');
 
@@ -27,6 +26,12 @@ const unsplashApi = 'It8bvh6_grp0Wrv-jf-vTUaq8nvzLpYu7lKgVdSZzDc';
 const flickrApi = '8ba8a60325cbf22fe03fc4729a0c872d';
 
 const photoTheme_block = document.querySelector('.photoThemeInput');
+const photoTheme_span = document.querySelector('.photoTheme');
+
+const options = document.querySelector('.options')
+const options_bg = document.querySelector('.options_bg')
+const button_options = document.querySelector('.button_options');
+const button_options_close = document.querySelector('.button_options_close');
 
 
 const dictionary = {
@@ -41,6 +46,9 @@ const dictionary = {
     locale: 'en-US',
     lang: 'Language',
     photoSource: 'Photo Source',
+    photoTheme: 'Photo Theme',
+    showElements: 'Show elements',
+    showElementsList: ['Audio player','Weather forecast','Time','Current date','Greeting','Quote'],
     defaultCity: 'Minsk'    
   },
   ru : {
@@ -54,9 +62,14 @@ const dictionary = {
     locale: 'ru-RU',
     lang: 'Язык',
     photoSource: 'Источник фото',
+    photoTheme: 'Тема фото',
+    showElements: 'Показать блоки',
+    showElementsList: ['Аудио плеер','Прогноз погоды','Время','Текущая дата','Приветствие','Цитаты'],   
     defaultCity: 'Минск'
   }
 }
+
+let showBlocks; 
 
 let lang;
 if (localStorage.getItem('lang')) {
@@ -81,7 +94,8 @@ function setLocalStorage() {
   localStorage.setItem('city', city_block.value || dictionary[lang].defaultCity); 
   localStorage.setItem('lang', lang);
   localStorage.setItem('photoSource', photoSource);
-  localStorage.setItem('photoTheme', photoTheme_block.value);
+  localStorage.setItem('photoTheme', photoTheme_block.value); 
+  localStorage.setItem('showBlocks', showBlocks);
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
@@ -107,6 +121,22 @@ function getLocalStorage() {
   }
   else { };
 
+  if(localStorage.getItem('showBlocks') !== undefined) {
+    showBlocks = localStorage.getItem('showBlocks').split(','); 
+  }
+  else { showBlocks = ['player', 'weather','time', 'date', 'greeting-container', 'footer']};
+
+  if(showBlocks[0] !== '') {
+    showBlocks.forEach((block) => {      
+      document.getElementById("checkbox_" + block).checked = true;   
+    });
+  }
+
+  document.querySelectorAll("input[name='visibility_checkbox']:not(:checked)").forEach((block) => {
+    document.querySelector('.' + block.value).classList.toggle('hidden');    
+  });
+
+
 }
 window.addEventListener('load', getLocalStorage)
 
@@ -119,6 +149,13 @@ function setLanguage() {
   lang = document.querySelector('input[name="language"]:checked').value;
   lang_span.textContent = `${dictionary[lang].lang}: `;
   photoSource_span.textContent = `${dictionary[lang].photoSource}: `;
+  photoTheme_span.textContent = `${dictionary[lang].photoTheme}: `;
+  document.querySelector('.visibility').textContent = `${dictionary[lang].showElements}: `;
+  
+  document.querySelectorAll('.visibility_checkbox').forEach((block, index) => {
+    block.textContent = dictionary[lang].showElementsList[index]
+  })
+   
   name_block.placeholder = dictionary[lang].namePlaceholder;
 } 
 
@@ -127,6 +164,16 @@ document.querySelectorAll("input[name='language']").forEach((input) => {
     setLanguage();
     getWeather();
     getQuotes();
+  });
+});
+
+
+
+
+document.querySelectorAll("input[name='visibility_checkbox']").forEach((input) => {
+  input.addEventListener('change', function () {
+    document.querySelector('.' + input.value).classList.toggle('hidden')
+    showBlocks = Array.from(document.querySelectorAll('input[name=visibility_checkbox]:checked')).map(checkbox => checkbox.value);
   });
 });
 
@@ -401,6 +448,26 @@ document.querySelector("#muteButton").addEventListener("click", () => {
     volumeEl.style.opacity = 1;
   }
 });
+
+
+button_options.addEventListener('click', () => {
+  options_bg.classList.remove('hidden');
+  options.classList.remove('hidden');
+})
+
+options_bg.addEventListener('click', (value) => {
+  if (value.target.className = 'options_bg') {
+    options.classList.add('hidden');
+    options_bg.classList.add('hidden');
+  }   
+})
+
+button_options_close.addEventListener('click', () => {  
+    options.classList.add('hidden');
+    options_bg.classList.add('hidden');   
+})
+
+
 
 
 
