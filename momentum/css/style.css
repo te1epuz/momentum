@@ -19,6 +19,8 @@ body {
   background: center/cover, rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
+
+  position: relative;
 }
 
 .header {
@@ -181,7 +183,9 @@ body {
 
 .player-icon,
 .slider-icon,
-.change-quote {
+.change-quote,
+.button_options,
+.button_options_close {
   width: 32px;
   height: 32px;
   background-size: 32px 32px;
@@ -197,16 +201,20 @@ body {
 
 .player-icon:hover,
 .slider-icon:hover,
-.change-quote:hover {
+.change-quote:hover,
+.button_options:hover,
+.button_options_close:hover {
   opacity: 1;
 }
 
 .player-icon:active,
 .slider-icon:active,
-.change-quote:active {
+.change-quote:active,
+.button_options:active,
+.button_options_close:active {
   border: 0;
   outline: 0;  
-  transform: scale(1.1);
+  transform: scale(1.1);  
 }
 
 .play {
@@ -373,6 +381,81 @@ body {
 .author {
   min-height: 20px;
 }
+
+
+
+
+
+.button_options {
+  position: absolute;
+  background-image: url("../assets/svg/gear-white.svg"); 
+  left: 20px;
+  top: 94%;
+}
+
+
+
+
+.options_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.603);
+}
+
+.options {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  text-align: left;
+  line-height: 200%;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+  z-index: 10;
+}
+
+.button_options_close { 
+  background-image: url("../assets/svg/x-white.svg"); 
+  position: relative;
+  left: 90%;  
+}
+
+.language_radio, .photoSource_radio, .visibility_checkbox {
+  cursor: pointer;
+}
+
+.language, .photoSource, .photoTheme, .visibility {
+  display: inline-block;
+  width: 120px;
+  vertical-align: top;
+}
+
+.visibility_ul {
+  display: inline-block;
+  list-style: none;
+}
+
+.hidden {
+    visibility:hidden;
+    opacity:0;
+    
+}
+
+.player, .weather, .time, .date, .greeting-container, .footer, .options_bg, .options {
+  transition:visibility 0.3s linear, opacity 0.3s linear;
+}
+
+
+
+
+
+
+
+
 
 @media (max-width: 768px) {
   .time {
