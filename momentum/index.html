@@ -42,6 +42,25 @@
       <ul class="play-list"></ul>
     </div>  
 
+
+    <div class="todo-wrapper">
+      <div class="todo-header">
+        <img src="./assets/svg/bars.svg" alt="icon">
+        <input type="text" name="" id="input_todo" placeholder="Enter new task">
+      </div>
+      <ul class="todo-list"></ul>
+      <div class="todo-controls">
+        <!-- <div>
+          <span class="todo-filters todo-active" id="todo-all">All</span>
+          <span class="todo-filters" id="todo-pending">Pending</span>
+          <span class="todo-filters" id="todo-completed">Completed</span>
+        </div> -->
+        <button class="button_todo-clear">Clear All</button>
+      </div>
+    </div>
+
+
+
     
 
     <div class="weather">
@@ -82,10 +101,6 @@
       <div class="quote"></div>
       <div class="author"></div>
     </div>
-  
-    
-  
-    
   
   </footer>
 
@@ -153,12 +168,15 @@
           <input type="checkbox" name="visibility_checkbox" value="footer" id="checkbox_footer">
           <label class="visibility_checkbox" for="checkbox_footer">Quote</label>
         </li>
+        <li>
+          <input type="checkbox" name="visibility_checkbox" value="todo-wrapper" id="checkbox_todo-wrapper">
+          <label class="visibility_checkbox" for="checkbox_todo-wrapper">ToDo</label>
+        </li>
       </ul>
     </div>
   </div>
-  
 
-
+  <button onclick="window.location.href='https://rs.school/js/'" class="button_rs_school"></button>
 
   <script type="module" src="js/script.js"></script>
 </body>
