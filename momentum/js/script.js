@@ -21,17 +21,20 @@ const changeQuote = document.querySelector('.change-quote');
 
 const lang_span = document.querySelector('.language');
 const photoSource_span = document.querySelector('.photoSource');
-
 const unsplashApi = 'It8bvh6_grp0Wrv-jf-vTUaq8nvzLpYu7lKgVdSZzDc';
 const flickrApi = '8ba8a60325cbf22fe03fc4729a0c872d';
-
 const photoTheme_block = document.querySelector('.photoThemeInput');
 const photoTheme_span = document.querySelector('.photoTheme');
-
 const options = document.querySelector('.options')
 const options_bg = document.querySelector('.options_bg')
 const button_options = document.querySelector('.button_options');
 const button_options_close = document.querySelector('.button_options_close');
+
+const todo = document.querySelector('.todo-wrapper');
+const todo_input = document.querySelector('#input_todo')
+const todo_filters = document.querySelectorAll('.todo-filters');
+const button_todo_clear = document.querySelector('.button_todo-clear');
+const todo_list = document.querySelector('.todo-list');
 
 
 const dictionary = {
@@ -41,6 +44,9 @@ const dictionary = {
     afternoon: 'Good afternoon',
     evening: 'Good evening',
     namePlaceholder: '[enter Name]',
+    newTaskPlaceholder: '[enter new task]',
+    todoEmpty: 'no active tasks',
+    buttonTodoClear: 'Clear All',
     windSpeed: 'Wind Speed',
     humidity: 'Humidity',
     locale: 'en-US',
@@ -48,7 +54,7 @@ const dictionary = {
     photoSource: 'Photo Source',
     photoTheme: 'Photo Theme',
     showElements: 'Show elements',
-    showElementsList: ['Audio player','Weather forecast','Time','Current date','Greeting','Quote'],
+    showElementsList: ['Audio player','Weather forecast','Time','Current date','Greeting','Quote','ToDo'],
     defaultCity: 'Minsk'    
   },
   ru : {
@@ -57,6 +63,9 @@ const dictionary = {
     afternoon: 'Добрый день',
     evening: 'Добрый вечер',
     namePlaceholder: '[введите имя]',
+    newTaskPlaceholder: '[введите задачу]',
+    todoEmpty: 'нет активных задач',
+    buttonTodoClear: 'очистить всё',
     windSpeed: 'Скорость ветра',
     humidity: 'Влажность',
     locale: 'ru-RU',
@@ -64,12 +73,14 @@ const dictionary = {
     photoSource: 'Источник фото',
     photoTheme: 'Тема фото',
     showElements: 'Показать блоки',
-    showElementsList: ['Аудио плеер','Прогноз погоды','Время','Текущая дата','Приветствие','Цитаты'],   
+    showElementsList: ['Аудио плеер','Прогноз погоды','Время','Текущая дата','Приветствие','Цитаты','Список дел'],   
     defaultCity: 'Минск'
   }
 }
 
 let showBlocks; 
+let todoTaskList = [];
+let todoTaskListChecked = [];
 
 let lang;
 if (localStorage.getItem('lang')) {
@@ -90,12 +101,14 @@ document.getElementById(photoSource).checked = true;
 
 
 function setLocalStorage() {
-  localStorage.setItem('name', name_block.value);
+  if (name_block.value) {localStorage.setItem('name', name_block.value);}  
   localStorage.setItem('city', city_block.value || dictionary[lang].defaultCity); 
   localStorage.setItem('lang', lang);
   localStorage.setItem('photoSource', photoSource);
   localStorage.setItem('photoTheme', photoTheme_block.value); 
   localStorage.setItem('showBlocks', showBlocks);
+  if (todoTaskList) {localStorage.setItem('todoTaskList', todoTaskList);}  
+  localStorage.setItem('todoTaskListChecked', todoTaskListChecked);
 }
 window.addEventListener('beforeunload', setLocalStorage)
 
@@ -110,6 +123,17 @@ function getLocalStorage() {
     city_block.value = localStorage.getItem('city');
   }
   else { city_block.value = dictionary[lang].defaultCity}; 
+
+  if(localStorage.getItem('todoTaskList'))  {
+    todoTaskList = localStorage.getItem('todoTaskList').split(',');
+  }
+  else { };
+
+  if(localStorage.getItem('todoTaskListChecked'))  {
+    todoTaskListChecked = localStorage.getItem('todoTaskListChecked').split(',');
+  }
+  else { };
+
   
   if(localStorage.getItem('photoSource')) {
     photoSource = localStorage.getItem('photoSource');
@@ -124,7 +148,7 @@ function getLocalStorage() {
   if(localStorage.getItem('showBlocks') !== undefined) {
     showBlocks = localStorage.getItem('showBlocks').split(','); 
   }
-  else { showBlocks = ['player', 'weather','time', 'date', 'greeting-container', 'footer']};
+  else { showBlocks = ['player', 'weather','time', 'date', 'greeting-container', 'footer', 'todo-wrapper']};
 
   if(showBlocks[0] !== '') {
     showBlocks.forEach((block) => {      
@@ -157,6 +181,11 @@ function setLanguage() {
   })
    
   name_block.placeholder = dictionary[lang].namePlaceholder;
+  todo_input.placeholder = dictionary[lang].newTaskPlaceholder;
+  button_todo_clear.textContent = dictionary[lang].buttonTodoClear;
+
+  todoRefresh()
+  
 } 
 
 document.querySelectorAll("input[name='language']").forEach((input) => {
@@ -468,10 +497,80 @@ button_options_close.addEventListener('click', () => {
 })
 
 
+// let todoTaskList = ['1st task', '2nd task', '3rd task']
+
+function todoRefresh() {
+  todo_list.innerHTML = ""; 
+  if (todoTaskList.length === 0) {
+    const li = document.createElement('li');
+    li.classList.add('todo-task');
+    li.style.opacity = '0.4'
+    li.textContent = dictionary[lang].todoEmpty;
+    todo_list.append(li);
+
+    document.querySelector('.todo-controls').style.display = 'none';
+  }
+  else {
+    document.querySelector('.todo-controls').style.display = 'flex';
+    todoTaskList.forEach((el, index) => {    
+      let checked = '';
+      let line = '';
+      if (todoTaskListChecked[index] === 'checked') {
+        checked = 'checked';
+        line = 'line-through';
+      }
+      const li = document.createElement('li');      
+      li.classList.add('todo-task');
+      li.innerHTML = `<label class="todo-task-label" for="task${index + 1}" id="${index}">
+                      <input type="checkbox" name="todo_checkbox" id="task${index + 1}" value="ptask${index + 1}"
+                      ${checked}>
+                      <p class="ptask${index + 1} ${line}">${el}</p>
+                      <img src="./assets/svg/x-white.svg" alt="cross">
+                      </label>` 
+      todo_list.append(li);
+    })
+  }
+
+  document.querySelectorAll("input[name='todo_checkbox']").forEach((input) => { 
+    input.addEventListener('change', function (event) { 
+      
+      if (input.checked) { 
+        todoTaskListChecked[event.target.parentElement.id] = 'checked'; 
+        document.querySelector('.' + input.value).classList.add('line-through');
+      }
+      else {
+        todoTaskListChecked[event.target.parentElement.id] = '';
+        document.querySelector('.' + input.value).classList.remove('line-through');
+      }
+    });
+  });
 
 
+  
+}
+window.addEventListener('load', todoRefresh); 
 
 
+function todoAddTask() {
+  todoTaskList.push(todo_input.value);
+  todo_input.value = '';
+  // todo_input.blur(); 
+  todoRefresh() 
+}
 
+todo_input.addEventListener('change', todoAddTask)
 
+button_todo_clear.addEventListener('click', () => {
+  todoTaskList = [];
+  todoTaskListChecked = [];
+  todoRefresh();
+})
+
+todo_list.addEventListener('click', (event) => {
+  if (event.target.tagName === "IMG") { 
+    todoTaskList.splice(event.target.parentElement.id, 1);
+    todoTaskListChecked.splice(event.target.parentElement.id, 1);
+    todoRefresh();
+  }   
+})
 
