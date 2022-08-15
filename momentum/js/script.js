@@ -78,7 +78,7 @@ const dictionary = {
   }
 }
 
-let showBlocks; 
+let showBlocks = []; 
 let todoTaskList = [];
 let todoTaskListChecked = [];
 
@@ -145,10 +145,12 @@ function getLocalStorage() {
   }
   else { };
 
-  if(localStorage.getItem('showBlocks') !== undefined) {
-    showBlocks = localStorage.getItem('showBlocks').split(','); 
+  if(localStorage.getItem('showBlocks') !== 'undefined') {
+    showBlocks = localStorage.getItem('showBlocks').split(',')
   }
-  else { showBlocks = ['player', 'weather','time', 'date', 'greeting-container', 'footer', 'todo-wrapper']};
+  else { 
+    showBlocks = ['player', 'weather','time', 'date', 'greeting-container', 'footer', 'todo-wrapper']
+  };
 
   if(showBlocks[0] !== '') {
     showBlocks.forEach((block) => {      
