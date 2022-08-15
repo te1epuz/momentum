@@ -145,7 +145,7 @@ function getLocalStorage() {
   }
   else { };
 
-  if(localStorage.getItem('showBlocks') !== 'undefined') {
+  if(localStorage.getItem('showBlocks')) {
     showBlocks = localStorage.getItem('showBlocks').split(',')
   }
   else { 
