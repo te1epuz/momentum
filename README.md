@@ -1,2 +1,1 @@
-# te1epuz-JSFEPRESCHOOL2022Q2
-Private repository for @te1epuz
+https://te1epuz.github.io/momentum/momentum/index.html
